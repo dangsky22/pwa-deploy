@@ -1,3 +1,18 @@
+###############
+# Stage 1: Vite build
+###############
+FROM node:20 AS node-build
+WORKDIR /app
+# Only copy what's needed first for better caching
+COPY package*.json vite.config.js .
+COPY resources ./resources
+COPY public ./public
+COPY . .
+RUN npm ci && npm run build
+
+###############
+# Stage 2: PHP + Apache
+###############
 FROM php:8.3-apache
 
 # Set direktori kerja
@@ -29,6 +44,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copy application
 COPY . .
+# Copy built front-end assets from the node build stage
+COPY --from=node-build /app/public/build ./public/build
 
 # Install dependencies
 RUN composer install --no-dev --no-interaction --optimize-autoloader
