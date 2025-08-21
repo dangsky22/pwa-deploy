@@ -1,6 +1,6 @@
 {
   "name": "Laravel PWA",
-  "short_name": "PWA",
+  "short_name": "DNG",
   "description": "A minimal Laravel Progressive Web App setup.",
   "start_url": "/?source=pwa",
   "scope": "/",
