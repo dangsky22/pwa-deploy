@@ -14,60 +14,164 @@
 <body class="bg-white font-sans text-gray-800">
 
     <!-- Navbar -->
-    <nav class="flex justify-between items-center px-10 py-4 shadow-md bg-white">
-        <h1 class="text-2xl font-bold text-gray-800">KOZE MANAGEMENT</h1>
-        <ul class="flex space-x-8 text-gray-700 font-medium">
-            <li><a href="#" class="hover:text-teal-600">Home</a></li>
-            <li><a href="#" class="hover:text-teal-600">Layanan</a></li>
-            <li><a href="#" class="hover:text-teal-600">Platform</a></li>
-            <li><a href="#" class="hover:text-teal-600">Contacts</a></li>
-            <li><a href="{{ route('login') }}" class="hover:text-teal-600">Login</a></li>
-            <li><a href="{{ route('register') }}" class="hover:text-teal-600">Register</a></li>
+    <nav class="flex justify-between items-center px-4 sm:px-6 lg:px-10 py-4 shadow-md bg-white relative">
+        <!-- Logo/Brand -->
+        <h1 class="text-xl sm:text-2xl font-bold text-gray-800">KOZE MANAGEMENT</h1>
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="lg:hidden flex flex-col space-y-1 p-2">
+            <span class="w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
+            <span class="w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
+            <span class="w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
+        </button>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden lg:flex space-x-6 xl:space-x-8 text-gray-700 font-medium">
+            <li><a href="#" class="hover:text-teal-600 transition-colors">Home</a></li>
+            <li><a href="#" class="hover:text-teal-600 transition-colors">Layanan</a></li>
+            <li><a href="#" class="hover:text-teal-600 transition-colors">Platform</a></li>
+            <li><a href="#" class="hover:text-teal-600 transition-colors">Contacts</a></li>
+            <li><a href="{{ route('login') }}" class="hover:text-teal-600 transition-colors">Login</a></li>
+            <li><a href="{{ route('register') }}" class="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors">Register</a></li>
         </ul>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 opacity-0 invisible transition-all duration-300">
+            <div class="fixed right-0 top-0 h-full w-80 max-w-sm bg-white shadow-xl transform translate-x-full transition-transform duration-300">
+                <div class="flex justify-between items-center px-6 py-4 border-b">
+                    <h2 class="text-xl font-bold text-gray-800">Menu</h2>
+                    <button id="close-menu" class="p-2">
+                        <span class="sr-only">Close menu</span>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <ul class="flex flex-col px-6 py-4 space-y-4">
+                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Home</a></li>
+                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Layanan</a></li>
+                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Platform</a></li>
+                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Contacts</a></li>
+                    <li class="pt-4 border-t">
+                        <a href="{{ route('login') }}" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Login</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('register') }}" class="block bg-teal-600 text-white px-4 py-3 rounded-lg hover:bg-teal-700 transition-colors text-center">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="flex flex-col md:flex-row items-center justify-between px-10 py-16 max-w-7xl mx-auto">
+    <section class="flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 lg:px-10 py-8 sm:py-12 lg:py-16 max-w-7xl mx-auto">
         <!-- Left Text -->
-        <div class="md:w-1/2 space-y-6">
-            <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+        <div class="w-full lg:w-1/2 space-y-4 sm:space-y-6 text-center lg:text-left">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 Find your perfect home away from home
             </h2>
-            <p class="text-gray-600 text-lg">
+            <p class="text-gray-600 text-base sm:text-lg lg:text-xl max-w-lg mx-auto lg:mx-0">
                 Temukan kost impian Anda dengan fasilitas lengkap dan komunitas yang hangat.
                 Booking mudah, tinggal nyaman.
             </p>
         </div>
 
         <!-- Right Image -->
-        <div class="md:w-1/2 mt-10 md:mt-0">
+        <div class="w-full lg:w-1/2 mt-8 lg:mt-0 lg:pl-8">
             <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7" 
                  alt="Modern Living Room"
-                 class="rounded-lg shadow-lg w-full object-cover">
+                 class="rounded-lg shadow-lg w-full h-64 sm:h-80 lg:h-96 object-cover">
         </div>
     </section>
 
     <!-- Search Section -->
-    <section class="bg-white shadow-md rounded-full max-w-5xl mx-auto mt-[-40px] p-4 flex items-center space-x-4 relative z-10">
-        <input type="text" placeholder="Cari Hunian" 
-               class="flex-1 px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600">
-        
-        <select class="px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600">
-            <option>Mulai sewa</option>
-            <option>Hari ini</option>
-            <option>Minggu depan</option>
-        </select>
+    <section class="bg-white shadow-md rounded-2xl max-w-5xl mx-4 sm:mx-6 lg:mx-auto mt-4 lg:mt-[-40px] p-4 sm:p-6 relative z-10">
+        <!-- Desktop Search -->
+        <div class="hidden lg:flex items-center space-x-4">
+            <input type="text" placeholder="Cari Hunian" 
+                   class="flex-1 px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600">
+            
+            <select class="px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 min-w-32">
+                <option>Mulai sewa</option>
+                <option>Hari ini</option>
+                <option>Minggu depan</option>
+            </select>
 
-        <select class="px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600">
-            <option>Penghuni 1</option>
-            <option>Penghuni 2</option>
-            <option>Penghuni 3+</option>
-        </select>
+            <select class="px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 min-w-32">
+                <option>Penghuni 1</option>
+                <option>Penghuni 2</option>
+                <option>Penghuni 3+</option>
+            </select>
 
-        <button class="bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700">
-            Search
-        </button>
+            <button class="bg-teal-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-teal-700 transition-colors">
+                Search
+            </button>
+        </div>
+
+        <!-- Mobile Search -->
+        <div class="lg:hidden space-y-4">
+            <input type="text" placeholder="Cari Hunian" 
+                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <select class="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600">
+                    <option>Mulai sewa</option>
+                    <option>Hari ini</option>
+                    <option>Minggu depan</option>
+                </select>
+
+                <select class="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600">
+                    <option>Penghuni 1</option>
+                    <option>Penghuni 2</option>
+                    <option>Penghuni 3+</option>
+                </select>
+            </div>
+
+            <button class="w-full bg-teal-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-teal-700 transition-colors">
+                Search
+            </button>
+        </div>
     </section>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+
+        function openMenu() {
+            mobileMenu.classList.remove('opacity-0', 'invisible');
+            mobileMenu.classList.add('opacity-100', 'visible');
+            mobileMenu.querySelector('div').classList.remove('translate-x-full');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.add('opacity-0', 'invisible');
+            mobileMenu.classList.remove('opacity-100', 'visible');
+            mobileMenu.querySelector('div').classList.add('translate-x-full');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', openMenu);
+        closeMenuBtn.addEventListener('click', closeMenu);
+        
+        // Close menu when clicking on overlay
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                closeMenu();
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMenu();
+            }
+        });
+    </script>
+
     <script src="{{ asset('/sw.js') }}"></script>
     <script>
    if ("serviceWorker" in navigator) {
