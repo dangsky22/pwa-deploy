@@ -1,7 +1,7 @@
 {
-  "name": "Laravel PWA",
+  "name": "Belajar DNG",
   "short_name": "DNG",
-  "description": "A minimal Laravel Progressive Web App setup.",
+  "description": "Aplikasi Belajar DNG",
   "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
