@@ -41,8 +41,8 @@
 
         <!-- Right Image -->
         <div class="md:w-1/2 mt-10 md:mt-0">
-            <img src="https://images.pexels.com/photos/3771831/pexels-photo-3771831.jpeg" 
-                 alt="Couple on Sofa"
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7" 
+                 alt="Modern Living Room"
                  class="rounded-lg shadow-lg w-full object-cover">
         </div>
     </section>
