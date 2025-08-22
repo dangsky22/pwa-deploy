@@ -212,7 +212,7 @@
                  style="background-image: url('{{ asset('images/icons/kost.png') }}');">
             </div>
             <!-- Light overlay for better text readability -->
-            <div class="absolute inset-0 bg-white bg-opacity-30"></div>
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
         </div>
 
         <!-- Content -->
