@@ -143,7 +143,7 @@
         <div class="hidden lg:block lg:w-1/2 relative">
             <!-- Background Image -->
             <img 
-                src="{{ asset('images/auth/kost.jpg') }}" 
+                src="{{ asset('images/auth/kost.png') }}" 
                 alt="Kost Interior" 
                 class="absolute inset-0 w-full h-full object-cover"
             >
