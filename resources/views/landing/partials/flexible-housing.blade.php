@@ -46,13 +46,6 @@
                     <p class="text-gray-600 text-lg leading-relaxed">
                         Kami percaya pada dunia dimana mencari hunian ideal hanya dengan sekali klik. Baik Anda mahasiswa baru, pekerja yang pindah kota, atau mencari tempat tinggal sementara - bawa tas Anda, biarkan kami mengurus sisanya.
                     </p>
-                    
-                    <!-- Call-to-action button -->
-
-                        <button class="bg-teal-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-teal-700 transition-colors inline-flex items-center gap-2">
-                            Mulai Pencarian
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
                     </div>
                 </div>
             </div>
