@@ -209,7 +209,7 @@
             <div class="w-full h-full bg-gradient-to-br from-teal-500 to-blue-600"></div>
             <!-- Main background image -->
             <div class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" 
-                 style="background-image: url('{{ asset('images/icons/kost.png') }}');">
+                 style="background-image: url('{{ asset('images/icons/dashboard.png') }}');">
             </div>
             
         </div>
