@@ -10,13 +10,11 @@
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
     <title>KOZE MANAGEMENT</title>
     @vite('resources/css/app.css')
-    <!-- Add Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="bg-white font-sans text-gray-800">
 
     <!-- Navbar -->
-    <nav class="flex justify-between items-center px-4 sm:px-6 lg:px-10 py-4 shadow-md bg-white relative z-20">
+    <nav class="flex justify-between items-center px-4 sm:px-6 lg:px-10 py-4 shadow-md bg-white relative">
         <!-- Logo/Brand -->
         <h1 class="text-xl sm:text-2xl font-bold text-gray-800">KOZE MANAGEMENT</h1>
         
@@ -29,12 +27,12 @@
 
         <!-- Desktop Menu -->
         <ul class="hidden lg:flex space-x-6 xl:space-x-8 text-gray-700 font-medium">
-            <li><a href="#" class="hover:text-teal-600 transition-colors">HOME</a></li>
-            <li><a href="#" class="hover:text-teal-600 transition-colors">LAYANAN</a></li>
-            <li><a href="#" class="hover:text-teal-600 transition-colors">PLATFORM</a></li>
-            <li><a href="#" class="hover:text-teal-600 transition-colors">CONTACTS</a></li>
-            <li><a href="{{ route('login') }}" class="hover:text-teal-600 transition-colors">LOGIN</a></li>
-            <li><a href="{{ route('register') }}" class="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors">Register</a></li>
+            <li><a href="#" class="hover:text-teal-600 transition-colors">Home</a></li>
+            <li><a href="#" class="hover:text-teal-600 transition-colors">Layanan</a></li>
+            <li><a href="#" class="hover:text-teal-600 transition-colors">Platform</a></li>
+            <li><a href="#" class="hover:text-teal-600 transition-colors">Contacts</a></li>
+            <li><a href="{{ route('login') }}" class="hover:text-teal-600 transition-colors">Login</a></li>
+            <li><a href="{{ route('register') }}" class="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors">Register</a></li>
         </ul>
 
         <!-- Mobile Menu Overlay -->
@@ -50,12 +48,12 @@
                     </button>
                 </div>
                 <ul class="flex flex-col px-6 py-4 space-y-4">
-                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">HOME</a></li>
-                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">LAYANAN</a></li>
-                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">PLATFORM</a></li>
-                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">CONTACTS</a></li>
+                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Home</a></li>
+                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Layanan</a></li>
+                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Platform</a></li>
+                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Contacts</a></li>
                     <li class="pt-4 border-t">
-                        <a href="{{ route('login') }}" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">LOGIN</a>
+                        <a href="{{ route('login') }}" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Login</a>
                     </li>
                     <li>
                         <a href="{{ route('register') }}" class="block bg-teal-600 text-white px-4 py-3 rounded-lg hover:bg-teal-700 transition-colors text-center">Register</a>
@@ -66,134 +64,78 @@
     </nav>
 
     <!-- Hero Section -->
+    <section class="flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 lg:px-10 py-8 sm:py-12 lg:py-16 max-w-7xl mx-auto">
+        <!-- Left Text -->
+        <div class="w-full lg:w-1/2 space-y-4 sm:space-y-6 text-center lg:text-left">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                Find your perfect home away from home
+            </h2>
+            <p class="text-gray-600 text-base sm:text-lg lg:text-xl max-w-lg mx-auto lg:mx-0">
+                Temukan kost impian Anda dengan fasilitas lengkap dan komunitas yang hangat.
+                Booking mudah, tinggal nyaman.
+            </p>
+        </div>
+
+        <!-- Hero Section -->
     <section class="relative h-screen flex items-center">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
-            <!-- Fallback background color -->
-            <div class="w-full h-full bg-gradient-to-br from-teal-500 to-blue-600"></div>
-            <!-- Main background image -->
-            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" 
-                 alt="Couple relaxing at home"
-                 class="absolute inset-0 w-full h-full object-cover"
-                 onload="this.style.opacity='1'"
-                 onerror="this.style.display='none'"
-                 style="opacity: 0; transition: opacity 0.3s;">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7" 
+                 alt="Modern Living Room"
+                 class="w-full h-full object-cover">
             <!-- Dark overlay for better text readability -->
-            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-        </div>
-
-        <!-- Content -->
-        <div class="relative z-10 w-full px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
-            <div class="flex flex-col lg:flex-row items-center justify-between">
-                <!-- Left Text -->
-                <div class="w-full lg:w-1/2 space-y-4 sm:space-y-6 text-center lg:text-left">
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white">
-                        Find your perfect home away from home
-                    </h2>
-                    <p class="text-gray-200 text-base sm:text-lg lg:text-xl max-w-lg mx-auto lg:mx-0">
-                        Temukan kost impian Anda dengan fasilitas lengkap dan komunitas yang hangat. 
-                        Booking mudah, tinggal nyaman.
-                    </p>
-                </div>
-
-                <!-- Right side - can be used for additional content if needed -->
-                <div class="w-full lg:w-1/2 mt-8 lg:mt-0">
-                    <!-- This space can be used for additional elements if needed -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Search Section - Overlaying the hero -->
-        <div class="absolute bottom-0 left-0 right-0 transform translate-y-1/2 px-4 sm:px-6 lg:px-10 z-20">
-            <div class="bg-white shadow-xl rounded-2xl max-w-5xl mx-auto p-4 sm:p-6 relative z-10">
-                <!-- Desktop Search -->
-                <div class="hidden lg:flex items-center space-x-4">
-                    <!-- Search Input with Icon -->
-                    <div class="flex-1 relative">
-                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <i class="fas fa-search text-gray-400"></i>
-                        </div>
-                        <input type="text" placeholder="Cari Hunian" 
-                               class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent">
-                    </div>
-                    
-                    <!-- Start Date Select with Icon -->
-                    <div class="relative min-w-40">
-                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <i class="fas fa-calendar text-gray-400"></i>
-                        </div>
-                        <select class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent appearance-none bg-white">
-                            <option>Mulai sewa</option>
-                            <option>Hari ini</option>
-                            <option>Minggu depan</option>
-                        </select>
-                    </div>
-
-                    <!-- Occupants Select with Icon -->
-                    <div class="relative min-w-32">
-                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <i class="fas fa-user text-gray-400"></i>
-                        </div>
-                        <select class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent appearance-none bg-white">
-                            <option>Penghuni 1</option>
-                            <option>Penghuni 2</option>
-                            <option>Penghuni 3+</option>
-                        </select>
-                    </div>
-
-                    <!-- Search Button -->
-                    <button class="bg-teal-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-teal-700 transition-colors whitespace-nowrap">
-                        Search
-                    </button>
-                </div>
-
-                <!-- Mobile Search -->
-                <div class="lg:hidden space-y-4">
-                    <!-- Search Input -->
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <i class="fas fa-search text-gray-400"></i>
-                        </div>
-                        <input type="text" placeholder="Cari Hunian" 
-                               class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent">
-                    </div>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <!-- Date Select -->
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <i class="fas fa-calendar text-gray-400"></i>
-                            </div>
-                            <select class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent appearance-none bg-white">
-                                <option>Mulai sewa</option>
-                                <option>Hari ini</option>
-                                <option>Minggu depan</option>
-                            </select>
-                        </div>
-
-                        <!-- Occupants Select -->
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <i class="fas fa-user text-gray-400"></i>
-                            </div>
-                            <select class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent appearance-none bg-white">
-                                <option>Penghuni 1</option>
-                                <option>Penghuni 2</option>
-                                <option>Penghuni 3+</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <button class="w-full bg-teal-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-700 transition-colors">
-                        Search
-                    </button>
-                </div>
-            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
         </div>
     </section>
 
-    <!-- Add some spacing after hero for the overlapping search bar -->
-    <div class="h-16"></div>
+    <!-- Search Section -->
+    <section class="bg-white shadow-md rounded-2xl max-w-5xl mx-4 sm:mx-6 lg:mx-auto mt-4 lg:mt-[-40px] p-4 sm:p-6 relative z-10">
+        <!-- Desktop Search -->
+        <div class="hidden lg:flex items-center space-x-4">
+            <input type="text" placeholder="Cari Hunian" 
+                   class="flex-1 px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600">
+            
+            <select class="px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 min-w-32">
+                <option>Mulai sewa</option>
+                <option>Hari ini</option>
+                <option>Minggu depan</option>
+            </select>
+
+            <select class="px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 min-w-32">
+                <option>Penghuni 1</option>
+                <option>Penghuni 2</option>
+                <option>Penghuni 3+</option>
+            </select>
+
+            <button class="bg-teal-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-teal-700 transition-colors">
+                Search
+            </button>
+        </div>
+
+        <!-- Mobile Search -->
+        <div class="lg:hidden space-y-4">
+            <input type="text" placeholder="Cari Hunian" 
+                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <select class="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600">
+                    <option>Mulai sewa</option>
+                    <option>Hari ini</option>
+                    <option>Minggu depan</option>
+                </select>
+
+                <select class="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600">
+                    <option>Penghuni 1</option>
+                    <option>Penghuni 2</option>
+                    <option>Penghuni 3+</option>
+                </select>
+            </div>
+
+            <button class="w-full bg-teal-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-teal-700 transition-colors">
+                Search
+            </button>
+        </div>
+    </section>
 
     <!-- JavaScript for Mobile Menu -->
     <script>
