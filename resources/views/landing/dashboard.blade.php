@@ -72,7 +72,7 @@
             <!-- Fallback background color -->
             <div class="w-full h-full bg-gradient-to-br from-teal-500 to-blue-600"></div>
             <!-- Main background image -->
-            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" 
+            <img src="{{ asset('images/icons/kost.png')}}" 
                  alt="Couple relaxing at home"
                  class="absolute inset-0 w-full h-full object-cover"
                  onload="this.style.opacity='1'"
