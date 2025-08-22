@@ -1,3 +1,4 @@
+{{-- resources/views/landing/dashboard.blade.php --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,245 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- PWA  -->
     <meta name="theme-color" content="#6777ef"/>
-    <link rel="apple-touch-icon" href="logo.png">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="{{ asset('logo.png') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
     <title>KOZE MANAGEMENT</title>
+    @vite('resources/css/app.css')
     <!-- Add Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Calendar Popup Styles -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: white;
-            color: #374151;
-        }
-
-        /* Navigation Styles */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2.5rem;
-            background: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 20;
-        }
-
-        .navbar h1 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #374151;
-        }
-
-        .desktop-menu {
-            display: none;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .desktop-menu a {
-            text-decoration: none;
-            color: #374151;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .desktop-menu a:hover {
-            color: #0D9488;
-        }
-
-        .register-btn {
-            background: #0D9488;
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 0.5rem;
-            transition: background 0.3s;
-        }
-
-        .register-btn:hover {
-            background: #0F766E;
-        }
-
-        .mobile-menu-btn {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            padding: 0.5rem;
-            cursor: pointer;
-        }
-
-        .mobile-menu-btn span {
-            width: 24px;
-            height: 2px;
-            background: #6B7280;
-            transition: all 0.3s;
-        }
-
-        /* Mobile Menu Overlay */
-        .mobile-menu-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 40;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-
-        .mobile-menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mobile-menu-content {
-            position: fixed;
-            right: 0;
-            top: 0;
-            height: 100%;
-            width: 320px;
-            max-width: calc(100vw - 2rem);
-            background: white;
-            box-shadow: -10px 0 25px rgba(0, 0, 0, 0.1);
-            transform: translateX(100%);
-            transition: transform 0.3s;
-        }
-
-        .mobile-menu-overlay.active .mobile-menu-content {
-            transform: translateX(0);
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom right, #14B8A6, #2563EB);
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.4);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            padding: 0 1rem;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .hero-text {
-            max-width: 50%;
-            color: white;
-        }
-
-        .hero-title {
-            font-size: clamp(2rem, 5vw, 4rem);
-            font-weight: bold;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-description {
-            font-size: 1.125rem;
-            color: #E5E7EB;
-            margin-bottom: 2rem;
-        }
-
-        /* Search Section */
-        .search-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            transform: translateY(50%);
-            padding: 0 1rem;
-            z-index: 20;
-        }
-
-        .search-container {
-            background: white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            border-radius: 1rem;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 1.5rem;
-        }
-
-        .search-desktop {
-            display: none;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .search-mobile {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .input-group {
-            position: relative;
-            flex: 1;
-        }
-
-        .input-group i {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #9CA3AF;
-        }
-
-        .search-input, .search-select {
-            width: 100%;
-            padding: 0.75rem 1rem 0.75rem 3rem;
-            border: 1px solid #D1D5DB;
-            border-radius: 9999px;
-            background: white;
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.3s;
-        }
-
-        .search-input:focus, .search-select:focus {
-            ring: 2px;
-            ring-color: #0D9488;
-            border-color: transparent;
-        }
-
-        .search-btn {
-            background: #0D9488;
-            color: white;
-            padding: 0.75rem 2rem;
-            border: none;
-            border-radius: 9999px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .search-btn:hover {
-            background: #0F766E;
-        }
-
         /* Calendar Popup Styles */
         .calendar-overlay {
             position: fixed;
@@ -367,144 +138,172 @@
             color: #6B7280;
         }
 
-        /* Responsive */
-        @media (min-width: 1024px) {
-            .desktop-menu {
-                display: flex;
-            }
-            
-            .mobile-menu-btn {
-                display: none;
-            }
-            
-            .search-desktop {
-                display: flex;
-            }
-            
-            .search-mobile {
-                display: none;
-            }
-            
-            .hero-text {
-                text-align: left;
-            }
-        }
-
         @media (max-width: 600px) {
             .calendar-container {
                 flex-direction: column;
                 gap: 1rem;
             }
         }
-
-        .spacing {
-            height: 4rem;
-        }
     </style>
 </head>
-<body>
+<body class="bg-white font-sans text-gray-800">
 
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="flex justify-between items-center px-4 sm:px-6 lg:px-10 py-4 shadow-md bg-white relative z-20">
         <!-- Logo/Brand -->
-        <h1>KOZE MANAGEMENT</h1>
+        <h1 class="text-xl sm:text-2xl font-bold text-gray-800">KOZE MANAGEMENT</h1>
         
         <!-- Mobile Menu Button -->
-        <button class="mobile-menu-btn" id="mobile-menu-btn">
-            <span></span>
-            <span></span>
-            <span></span>
+        <button id="mobile-menu-btn" class="lg:hidden flex flex-col space-y-1 p-2">
+            <span class="w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
+            <span class="w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
+            <span class="w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
         </button>
 
         <!-- Desktop Menu -->
-        <ul class="desktop-menu">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">LAYANAN</a></li>
-            <li><a href="#">PLATFORM</a></li>
-            <li><a href="#">CONTACTS</a></li>
-            <li><a href="#" >LOGIN</a></li>
-            <li><a href="#" class="register-btn">Register</a></li>
+        <ul class="hidden lg:flex space-x-6 xl:space-x-8 text-gray-700 font-medium">
+            <li><a href="#" class="hover:text-teal-600 transition-colors">HOME</a></li>
+            <li><a href="#" class="hover:text-teal-600 transition-colors">LAYANAN</a></li>
+            <li><a href="#" class="hover:text-teal-600 transition-colors">PLATFORM</a></li>
+            <li><a href="#" class="hover:text-teal-600 transition-colors">CONTACTS</a></li>
+            <li><a href="{{ route('login') }}" class="hover:text-teal-600 transition-colors">LOGIN</a></li>
+            <li><a href="{{ route('register') }}" class="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors">Register</a></li>
         </ul>
 
         <!-- Mobile Menu Overlay -->
-        <div class="mobile-menu-overlay" id="mobile-menu">
-            <div class="mobile-menu-content">
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 1px solid #E5E7EB;">
-                    <h2 style="font-size: 1.25rem; font-weight: bold;">Menu</h2>
-                    <button id="close-menu" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 opacity-0 invisible transition-all duration-300">
+            <div class="fixed right-0 top-0 h-full w-80 max-w-sm bg-white shadow-xl transform translate-x-full transition-transform duration-300">
+                <div class="flex justify-between items-center px-6 py-4 border-b">
+                    <h2 class="text-xl font-bold text-gray-800">Menu</h2>
+                    <button id="close-menu" class="p-2">
+                        <span class="sr-only">Close menu</span>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
                 </div>
-                <ul style="list-style: none; padding: 1rem 1.5rem;">
-                    <li style="margin-bottom: 1rem;"><a href="#" style="text-decoration: none; color: #374151;">HOME</a></li>
-                    <li style="margin-bottom: 1rem;"><a href="#" style="text-decoration: none; color: #374151;">LAYANAN</a></li>
-                    <li style="margin-bottom: 1rem;"><a href="#" style="text-decoration: none; color: #374151;">PLATFORM</a></li>
-                    <li style="margin-bottom: 1rem;"><a href="#" style="text-decoration: none; color: #374151;">CONTACTS</a></li>
-                    <li style="margin-bottom: 1rem; padding-top: 1rem; border-top: 1px solid #E5E7EB;"><a href="#" style="text-decoration: none; color: #374151;">LOGIN</a></li>
-                    <li><a href="#" style="text-decoration: none; background: #0D9488; color: white; padding: 0.75rem 1rem; border-radius: 0.5rem; display: block; text-align: center;">Register</a></li>
+                <ul class="flex flex-col px-6 py-4 space-y-4">
+                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">HOME</a></li>
+                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">LAYANAN</a></li>
+                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">PLATFORM</a></li>
+                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">CONTACTS</a></li>
+                    <li class="pt-4 border-t">
+                        <a href="{{ route('login') }}" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">LOGIN</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('register') }}" class="block bg-teal-600 text-white px-4 py-3 rounded-lg hover:bg-teal-700 transition-colors text-center">Register</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <!-- Background -->
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
+    <section class="relative h-screen flex items-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <!-- Fallback background color -->
+            <div class="w-full h-full bg-gradient-to-br from-teal-500 to-blue-600"></div>
+            <!-- Main background image -->
+            <img src="{{ asset('images/icons/kost.png')}}" 
+                 alt="Couple relaxing at home"
+                 class="absolute inset-0 w-full h-full object-cover"
+                 onload="this.style.opacity='1'"
+                 onerror="this.style.display='none'"
+                 style="opacity: 0; transition: opacity 0.3s;">
+            <!-- Dark overlay for better text readability -->
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        </div>
 
         <!-- Content -->
-        <div class="hero-content">
-            <div class="hero-text">
-                <h2 class="hero-title">Find your perfect home away from home</h2>
-                <p class="hero-description">
-                    Temukan kost impian Anda dengan fasilitas lengkap dan komunitas yang hangat. 
-                    Booking mudah, tinggal nyaman.
-                </p>
+        <div class="relative z-10 w-full px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row items-center justify-between">
+                <!-- Left Text -->
+                <div class="w-full lg:w-1/2 space-y-4 sm:space-y-6 text-center lg:text-left">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white">
+                        Find your perfect home away from home
+                    </h2>
+                    <p class="text-gray-200 text-base sm:text-lg lg:text-xl max-w-lg mx-auto lg:mx-0">
+                        Temukan kost impian Anda dengan fasilitas lengkap dan komunitas yang hangat. 
+                        Booking mudah, tinggal nyaman.
+                    </p>
+                </div>
+
+                <!-- Right side - can be used for additional content if needed -->
+                <div class="w-full lg:w-1/2 mt-8 lg:mt-0">
+                    <!-- This space can be used for additional elements if needed -->
+                </div>
             </div>
         </div>
 
-        <!-- Search Section -->
-        <div class="search-overlay">
-            <div class="search-container">
+        <!-- Search Section - Overlaying the hero -->
+        <div class="absolute bottom-0 left-0 right-0 transform translate-y-1/2 px-4 sm:px-6 lg:px-10 z-20">
+            <div class="bg-white shadow-xl rounded-2xl max-w-5xl mx-auto p-4 sm:p-6 relative z-10">
                 <!-- Desktop Search -->
-                <div class="search-desktop">
-                    <div class="input-group">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Cari Hunian" class="search-input">
+                <div class="hidden lg:flex items-center space-x-4">
+                    <!-- Search Input with Icon -->
+                    <div class="flex-1 relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                        <input type="text" placeholder="Cari Hunian" 
+                               class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent">
                     </div>
                     
-                    <div class="input-group" style="min-width: 160px;">
-                        <i class="fas fa-calendar"></i>
-                        <input type="text" placeholder="Mulai sewa" class="search-input" id="start-date-desktop" readonly style="cursor: pointer;">
+                    <!-- Start Date Select with Icon -->
+                    <div class="relative min-w-40">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <i class="fas fa-calendar text-gray-400"></i>
+                        </div>
+                        <input type="text" placeholder="Mulai sewa" id="start-date-desktop" readonly
+                               class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent appearance-none bg-white cursor-pointer">
                     </div>
 
-                    <div class="input-group" style="min-width: 128px;">
-                        <i class="fas fa-user"></i>
-                        <select class="search-select">
+                    <!-- Occupants Select with Icon -->
+                    <div class="relative min-w-32">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <i class="fas fa-user text-gray-400"></i>
+                        </div>
+                        <select class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent appearance-none bg-white">
                             <option>Penghuni 1</option>
                             <option>Penghuni 2</option>
                             <option>Penghuni 3+</option>
                         </select>
                     </div>
 
-                    <button class="search-btn">Search</button>
+                    <!-- Search Button -->
+                    <button class="bg-teal-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-teal-700 transition-colors whitespace-nowrap">
+                        Search
+                    </button>
                 </div>
 
                 <!-- Mobile Search -->
-                <div class="search-mobile">
-                    <div class="input-group">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Cari Hunian" class="search-input">
+                <div class="lg:hidden space-y-4">
+                    <!-- Search Input -->
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                        <input type="text" placeholder="Cari Hunian" 
+                               class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent">
                     </div>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                        <div class="input-group">
-                            <i class="fas fa-calendar"></i>
-                            <input type="text" placeholder="Mulai sewa" class="search-input" id="start-date-mobile" readonly style="cursor: pointer;">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Date Select -->
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i class="fas fa-calendar text-gray-400"></i>
+                            </div>
+                            <input type="text" placeholder="Mulai sewa" id="start-date-mobile" readonly
+                                   class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent appearance-none bg-white cursor-pointer">
                         </div>
 
-                        <div class="input-group">
-                            <i class="fas fa-user"></i>
-                            <select class="search-select">
+                        <!-- Occupants Select -->
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i class="fas fa-user text-gray-400"></i>
+                            </div>
+                            <select class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent appearance-none bg-white">
                                 <option>Penghuni 1</option>
                                 <option>Penghuni 2</option>
                                 <option>Penghuni 3+</option>
@@ -512,7 +311,9 @@
                         </div>
                     </div>
 
-                    <button class="search-btn" style="width: 100%;">Search</button>
+                    <button class="w-full bg-teal-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-700 transition-colors">
+                        Search
+                    </button>
                 </div>
             </div>
         </div>
@@ -551,8 +352,10 @@
         </div>
     </div>
 
-    <div class="spacing"></div>
+    <!-- Add some spacing after hero for the overlapping search bar -->
+    <div class="h-16"></div>
 
+    <!-- JavaScript for Mobile Menu -->
     <script>
         // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -560,24 +363,30 @@
         const closeMenuBtn = document.getElementById('close-menu');
 
         function openMenu() {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            mobileMenu.classList.remove('opacity-0', 'invisible');
+            mobileMenu.classList.add('opacity-100', 'visible');
+            mobileMenu.querySelector('div').classList.remove('translate-x-full');
+            document.body.classList.add('overflow-hidden');
         }
 
         function closeMenu() {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
+            mobileMenu.classList.add('opacity-0', 'invisible');
+            mobileMenu.classList.remove('opacity-100', 'visible');
+            mobileMenu.querySelector('div').classList.add('translate-x-full');
+            document.body.classList.remove('overflow-hidden');
         }
 
         mobileMenuBtn.addEventListener('click', openMenu);
         closeMenuBtn.addEventListener('click', closeMenu);
         
+        // Close menu when clicking on overlay
         mobileMenu.addEventListener('click', (e) => {
             if (e.target === mobileMenu) {
                 closeMenu();
             }
         });
 
+        // Close menu on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeMenu();
@@ -606,12 +415,12 @@
         function openCalendar() {
             calendarPopup.style.display = 'flex';
             generateCalendars();
-            document.body.style.overflow = 'hidden';
+            document.body.classList.add('overflow-hidden');
         }
 
         function closeCalendar() {
             calendarPopup.style.display = 'none';
-            document.body.style.overflow = '';
+            document.body.classList.remove('overflow-hidden');
         }
 
         function generateCalendar(month, calendarId) {
@@ -721,5 +530,22 @@
         generateCalendars();
     </script>
 
+    <script src="{{ asset('/sw.js') }}"></script>
+    <script>
+   if ("serviceWorker" in navigator) {
+      // Register a service worker hosted at the root of the
+      // site using the default scope.
+      navigator.serviceWorker.register("/sw.js").then(
+      (registration) => {
+         console.log("Service worker registration succeeded:", registration);
+      },
+      (error) => {
+         console.error(`Service worker registration failed: ${error}`);
+      },
+    );
+      } else {
+     console.error("Service workers are not supported.");
+      }
+    </script>
 </body>
 </html>
