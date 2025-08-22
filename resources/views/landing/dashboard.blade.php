@@ -214,20 +214,20 @@
             
         </div>
 
-        <!-- Content -->
+ <!-- Content -->
         <div class="relative z-10 w-full px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
             <div class="flex flex-col lg:flex-row items-center justify-between">
-                <!-- Left Text -->
-                <div class="w-full lg:w-1/2 space-y-4 sm:space-y-6 text-center lg:text-left">
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white">
-                        Find your perfect home away from home
-                    </h2>
-                    <p class="text-gray-200 text-base sm:text-lg lg:text-xl max-w-lg mx-auto lg:mx-0">
-                        Temukan kost impian Anda dengan fasilitas lengkap dan komunitas yang hangat. 
-                        Booking mudah, tinggal nyaman.
-                    </p>
+                <!-- Left Text with White Background Wrapper -->
+                <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+                    <div class="bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-xl max-w-lg">
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 mb-6">
+                            Find your perfect home away from home
+                        </h1>
+                        <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
+                            Temukan kost impian Anda dengan fasilitas lengkap dan komunitas yang hangat. Booking mudah, tinggal nyaman.
+                        </p>
+                    </div>
                 </div>
-
                 <!-- Right side - can be used for additional content if needed -->
                 <div class="w-full lg:w-1/2 mt-8 lg:mt-0">
                     <!-- This space can be used for additional elements if needed -->
