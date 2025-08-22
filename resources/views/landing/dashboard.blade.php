@@ -213,9 +213,7 @@
     <img src="{{ asset('images/icons/dashboard.png') }}" 
          alt="Hero Background" 
          class="absolute inset-0 w-full h-full object-cover object-center sm:object-center md:object-center lg:object-right-center">
-    
-    <!-- Mobile overlay -->
-    <div class="absolute inset-0 bg-black bg-opacity-10 md:bg-opacity-0"></div>
+
 </div>
 
  <!-- Content -->
