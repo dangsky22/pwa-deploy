@@ -204,19 +204,17 @@
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center">
         <!-- Background Image -->
-        <!-- Background Image -->
-    <div class="absolute inset-0 z-0">
-    <!-- Fallback background color -->
-    <div class="w-full h-full bg-gradient-to-br from-teal-500 to-blue-600"></div>
-    
-    <!-- Main background image using img tag -->
-    <img src="{{ asset('images/icons/dashboard.png') }}" 
-         alt="Hero Background" 
-         class="absolute inset-0 w-full h-full object-cover object-center sm:object-center md:object-center lg:object-right-center">
+        <div class="absolute inset-0 z-0">
+            <!-- Fallback background color -->
+            <div class="w-full h-full bg-gradient-to-br from-teal-500 to-blue-600"></div>
+            
+            <!-- Main background image using img tag -->
+            <img src="{{ asset('images/icons/dashboard.png') }}" 
+                 alt="Hero Background" 
+                 class="absolute inset-0 w-full h-full object-cover object-center sm:object-center md:object-center lg:object-right-center">
+        </div>
 
-</div>
-
- <!-- Content -->
+        <!-- Content -->
         <div class="relative z-10 w-full px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
             <div class="flex flex-col lg:flex-row items-center justify-between">
                 <!-- Left Text with White Background Wrapper -->
@@ -320,6 +318,12 @@
         </div>
     </section>
 
+    <!-- Add some spacing after hero for the overlapping search bar -->
+    <div class="h-16"></div>
+
+    <!-- Include Section Masa Depan Hunian yang Fleksibel -->
+    @include('landing.partials.flexible-housing')
+
     <!-- Calendar Popup -->
     <div class="calendar-overlay" id="calendar-popup">
         <div class="calendar-popup">
@@ -355,9 +359,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Add some spacing after hero for the overlapping search bar -->
-    <div class="h-16"></div>
 
     <!-- JavaScript for Mobile Menu -->
     <script>
