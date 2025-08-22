@@ -76,7 +76,7 @@
                  alt="Couple relaxing at home"
                  class="absolute inset-0 w-full h-full object-cover"
                  onload="this.style.opacity='1'"
-                 onerror="this.style.display='none'"
+                 
                  style="opacity: 0; transition: opacity 0.3s;">
             <!-- Dark overlay for better text readability -->
             <div class="absolute inset-0 bg-black bg-opacity-40"></div>
