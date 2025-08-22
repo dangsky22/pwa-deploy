@@ -191,14 +191,7 @@
      console.error("Service workers are not supported.");
       }
     </script>
-        // Display flash messages
-        @if(session('success'))
-            alert('{{ session('success') }}');
-        @endif
-
-        @if(session('error'))
-            alert('{{ session('error') }}');
-        @endif
+       
     </script>
 </body>
 </html>
