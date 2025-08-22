@@ -69,11 +69,17 @@
     <section class="relative h-screen flex items-center">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7" 
-                 alt="Modern Living Room"
-                 class="w-full h-full object-cover">
+            <!-- Fallback background color -->
+            <div class="w-full h-full bg-gradient-to-br from-teal-500 to-blue-600"></div>
+            <!-- Main background image -->
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" 
+                 alt="Couple relaxing at home"
+                 class="absolute inset-0 w-full h-full object-cover"
+                 onload="this.style.opacity='1'"
+                 onerror="this.style.display='none'"
+                 style="opacity: 0; transition: opacity 0.3s;">
             <!-- Dark overlay for better text readability -->
-            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
 
         <!-- Content -->
