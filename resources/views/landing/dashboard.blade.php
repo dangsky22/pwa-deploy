@@ -214,12 +214,12 @@
             
         </div>
 
-  <!-- Content -->
-        <div class="relative z-10 w-full px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
-            <div class="flex flex-col lg:flex-row items-center justify-between">
-                <!-- Left Text with White Background Wrapper -->
-                <div class="w-full lg:w-3/5 mb-8 lg:mb-0 lg:-ml-8">
-                    <div class="bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl p-6 lg:p-8 xl:p-10 shadow-xl max-w-xl lg:max-w-2xl">
+ <!-- Content -->
+        <div class="relative z-10 w-full">
+            <div class="flex items-center">
+                <!-- Left Text with White Background Wrapper - positioned to the far left -->
+                <div class="w-full lg:w-auto lg:max-w-2xl pl-4 sm:pl-6 lg:pl-10">
+                    <div class="bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl p-6 lg:p-8 xl:p-12 shadow-xl">
                         <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-gray-900 mb-6">
                             Find your perfect home away from home
                         </h1>
@@ -228,6 +228,7 @@
                         </p>
                     </div>
                 </div>
+                
                 <!-- Right side - can be used for additional content if needed -->
                 <div class="w-full lg:w-1/2 mt-8 lg:mt-0">
                     <!-- This space can be used for additional elements if needed -->
