@@ -214,16 +214,16 @@
             
         </div>
 
- <!-- Content -->
+  <!-- Content -->
         <div class="relative z-10 w-full px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
             <div class="flex flex-col lg:flex-row items-center justify-between">
                 <!-- Left Text with White Background Wrapper -->
-                <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
-                    <div class="bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-xl max-w-lg">
-                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 mb-6">
+                <div class="w-full lg:w-3/5 mb-8 lg:mb-0 lg:-ml-8">
+                    <div class="bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl p-6 lg:p-8 xl:p-10 shadow-xl max-w-xl lg:max-w-2xl">
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-gray-900 mb-6">
                             Find your perfect home away from home
                         </h1>
-                        <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
+                        <p class="text-gray-700 text-base sm:text-lg lg:text-xl leading-relaxed">
                             Temukan kost impian Anda dengan fasilitas lengkap dan komunitas yang hangat. Booking mudah, tinggal nyaman.
                         </p>
                     </div>
