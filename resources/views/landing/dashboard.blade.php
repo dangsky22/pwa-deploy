@@ -204,15 +204,19 @@
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center">
         <!-- Background Image -->
-        <div class="absolute inset-0 z-0">
-            <!-- Fallback background color -->
-            <div class="w-full h-full bg-gradient-to-br from-teal-500 to-blue-600"></div>
-            <!-- Main background image -->
-            <div class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" 
-                 style="background-image: url('{{ asset('images/icons/dashboard.png') }}');">
-            </div>
-            
-        </div>
+        <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+    <!-- Fallback background color -->
+    <div class="w-full h-full bg-gradient-to-br from-teal-500 to-blue-600"></div>
+    
+    <!-- Main background image using img tag -->
+    <img src="{{ asset('images/icons/dashboard.png') }}" 
+         alt="Hero Background" 
+         class="absolute inset-0 w-full h-full object-cover object-center sm:object-center md:object-center lg:object-right-center">
+    
+    <!-- Mobile overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-10 md:bg-opacity-0"></div>
+</div>
 
  <!-- Content -->
         <div class="relative z-10 w-full px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
