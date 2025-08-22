@@ -8,28 +8,28 @@
                 <div class="grid grid-cols-2 gap-4">
                     <!-- Top Left Image -->
                     <div class="relative">
-                        <img src="{{ asset('images/flexible/coworking-space.jpg') }}" 
+                        <img src="{{ asset('images/icons/flexible1.jpg') }}" 
                              alt="Coworking Space" 
                              class="w-full h-48 object-cover rounded-2xl shadow-lg">
                     </div>
                     
                     <!-- Top Right Image -->
                     <div class="relative">
-                        <img src="{{ asset('images/flexible/modern-living.jpg') }}" 
+                        <img src="{{ asset('images/icons/flexible2.jpg') }}"  
                              alt="Modern Living" 
                              class="w-full h-48 object-cover rounded-2xl shadow-lg">
                     </div>
                     
                     <!-- Bottom Left Image -->
                     <div class="relative">
-                        <img src="{{ asset('images/flexible/video-call.jpg') }}" 
+                        <img src="{{ asset('images/icons/flexible3.jpg') }}" 
                              alt="Video Call Workspace" 
                              class="w-full h-48 object-cover rounded-2xl shadow-lg">
                     </div>
                     
                     <!-- Bottom Right Image -->
                     <div class="relative">
-                        <img src="{{ asset('images/flexible/teamwork.jpg') }}" 
+                        <img src="{{ asset('images/icons/flexible4.jpg') }}" 
                              alt="Teamwork" 
                              class="w-full h-48 object-cover rounded-2xl shadow-lg">
                     </div>
