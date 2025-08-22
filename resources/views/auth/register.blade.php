@@ -223,7 +223,7 @@
         <div class="hidden lg:block lg:w-1/2 relative">
             <!-- Background Image -->
             <img 
-                src="{{ asset('images/auth/register-bg.jpg') }}" 
+                src="{{ asset('images/icons/kost.png') }}" 
                 alt="Kost Register" 
                 class="absolute inset-0 w-full h-full object-cover"
             >
