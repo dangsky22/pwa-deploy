@@ -44,15 +44,15 @@
                 <h3 class="text-xl font-semibold text-gray-900 text-center">The West End</h3>
             </div>
 
-            <!-- Benhil -->
+             <!-- The West End -->
             <div class="group cursor-pointer">
                 <div class="relative overflow-hidden rounded-2xl mb-4">
-                    <img src="{{ asset('images/icons/benhil.png') }}" 
+                    <img src="{{ asset('images/icons/west_end.png') }}" 
                          alt="The West End" 
                          class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none"></div>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-900 text-center">benhil</h3>
+                <h3 class="text-xl font-semibold text-gray-900 text-center">The West End</h3>
             </div>
 
             <!-- Piaza The Mozia -->
