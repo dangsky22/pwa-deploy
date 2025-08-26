@@ -17,7 +17,7 @@
                     <img src="{{ asset('images/icons/anarta.png') }}" 
                          alt="Anarta" 
                          class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none"></div>
                 </div>
                 <h3 class="text-xl font-semibold text-gray-900 text-center">Anarta</h3>
             </div>
@@ -28,7 +28,7 @@
                     <img src="{{ asset('images/icons/alesha.png') }}" 
                          alt="Alesha" 
                          class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none"></div>
                 </div>
                 <h3 class="text-xl font-semibold text-gray-900 text-center">Alesha</h3>
             </div>
@@ -39,7 +39,7 @@
                     <img src="{{ asset('images/icons/west_end.png') }}" 
                          alt="The West End" 
                          class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none"></div>
                 </div>
                 <h3 class="text-xl font-semibold text-gray-900 text-center">The West End</h3>
             </div>
@@ -50,7 +50,7 @@
                     <img src="{{ asset('images/icons/benhil.jpg') }}" 
                          alt="Benhil" 
                          class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none"></div>
                 </div>
                 <h3 class="text-xl font-semibold text-gray-900 text-center">Benhil</h3>
             </div>
@@ -61,7 +61,7 @@
                     <img src="{{ asset('images/icons/piaza.png') }}" 
                          alt="Piaza The Mozia" 
                          class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none"></div>
                 </div>
                 <h3 class="text-xl font-semibold text-gray-900 text-center">Piaza The Mozia</h3>
             </div>
