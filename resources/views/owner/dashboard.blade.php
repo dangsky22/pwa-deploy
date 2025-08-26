@@ -24,15 +24,10 @@
                         </h1>
                     </div>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <div class="flex items-center space-x-2 text-sm text-gray-600">
-                        <i class="fas fa-user-circle text-lg"></i>
-                        <span>Owner Panel</span>
-                    </div>
-                    <div class="h-6 w-px bg-gray-300"></div>
+                <div class="flex items-center">
                     <a href="#" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-red-600 transition-colors duration-200">
                         <i class="fas fa-sign-out-alt"></i>
-                        <span>Logout</span>
+                        <span class="hidden sm:inline">Logout</span>
                     </a>
                 </div>
             </div>
@@ -44,9 +39,9 @@
         
         <!-- Header Section -->
         <div class="mb-8">
-            <div class="flex items-center justify-between">
-                <div>
-                    <h2 class="text-3xl font-bold text-gray-900">Dashboard Pemilik Kostan</h2>
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div class="mb-4 sm:mb-0">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Dashboard Pemilik Kostan</h2>
                     <p class="mt-2 text-gray-600">Kelola properti kostan Anda dengan mudah</p>
                 </div>
                 <div class="flex items-center space-x-3">
@@ -60,17 +55,17 @@
         </div>
 
         <!-- Enhanced Stats Section -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
             <!-- Total Kostan Card -->
-            <div class="bg-white shadow-xl rounded-2xl p-6 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-white shadow-xl rounded-2xl p-4 sm:p-6 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h3 class="text-sm font-medium text-gray-500 uppercase tracking-wide">Total Kostan</h3>
-                        <p class="text-4xl font-bold text-gray-900 mt-2">5</p>
+                        <h3 class="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wide">Total Kostan</h3>
+                        <p class="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">5</p>
                         <p class="text-sm text-gray-600 mt-1">Unit terdaftar</p>
                     </div>
-                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center">
-                        <i class="fas fa-building text-white text-2xl"></i>
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-building text-white text-lg sm:text-2xl"></i>
                     </div>
                 </div>
                 <div class="mt-4 pt-4 border-t border-gray-100">
@@ -82,15 +77,15 @@
             </div>
 
             <!-- Terisi Card -->
-            <div class="bg-white shadow-xl rounded-2xl p-6 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-white shadow-xl rounded-2xl p-4 sm:p-6 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h3 class="text-sm font-medium text-gray-500 uppercase tracking-wide">Terisi</h3>
-                        <p class="text-4xl font-bold text-green-600 mt-2">3</p>
+                        <h3 class="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wide">Terisi</h3>
+                        <p class="text-3xl sm:text-4xl font-bold text-green-600 mt-2">3</p>
                         <p class="text-sm text-gray-600 mt-1">Unit berpenghuni</p>
                     </div>
-                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center">
-                        <i class="fas fa-users text-white text-2xl"></i>
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-users text-white text-lg sm:text-2xl"></i>
                     </div>
                 </div>
                 <div class="mt-4 pt-4 border-t border-gray-100">
@@ -105,15 +100,15 @@
             </div>
 
             <!-- Kosong Card -->
-            <div class="bg-white shadow-xl rounded-2xl p-6 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-white shadow-xl rounded-2xl p-4 sm:p-6 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h3 class="text-sm font-medium text-gray-500 uppercase tracking-wide">Kosong</h3>
-                        <p class="text-4xl font-bold text-red-600 mt-2">2</p>
+                        <h3 class="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wide">Kosong</h3>
+                        <p class="text-3xl sm:text-4xl font-bold text-red-600 mt-2">2</p>
                         <p class="text-sm text-gray-600 mt-1">Unit tersedia</p>
                     </div>
-                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center">
-                        <i class="fas fa-door-open text-white text-2xl"></i>
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-door-open text-white text-lg sm:text-2xl"></i>
                     </div>
                 </div>
                 <div class="mt-4 pt-4 border-t border-gray-100">
@@ -126,42 +121,42 @@
         </div>
 
         <!-- Enhanced Action Section -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             <!-- Quick Actions Card -->
-            <div class="bg-white shadow-xl rounded-2xl p-6 border border-gray-100">
+            <div class="bg-white shadow-xl rounded-2xl p-4 sm:p-6 border border-gray-100 order-2 lg:order-1">
                 <div class="flex items-center mb-6">
                     <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center mr-3">
                         <i class="fas fa-bolt text-white text-sm"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900">Aksi Cepat</h3>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-900">Aksi Cepat</h3>
                 </div>
                 <div class="space-y-4">
-                    <a href="#" class="flex items-center justify-between w-full p-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
+                    <a href="#" class="flex items-center justify-between w-full p-3 sm:p-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
                         <div class="flex items-center">
-                            <i class="fas fa-plus-circle text-xl mr-3"></i>
+                            <i class="fas fa-plus-circle text-lg sm:text-xl mr-3"></i>
                             <div>
-                                <p class="font-semibold">Tambah Unit Baru</p>
-                                <p class="text-blue-100 text-sm">Daftarkan kostan baru</p>
+                                <p class="font-semibold text-sm sm:text-base">Tambah Unit Baru</p>
+                                <p class="text-blue-100 text-xs sm:text-sm">Daftarkan kostan baru</p>
                             </div>
                         </div>
                         <i class="fas fa-arrow-right text-blue-200"></i>
                     </a>
-                    <a href="#" class="flex items-center justify-between w-full p-4 bg-gray-50 text-gray-700 rounded-xl hover:bg-gray-100 transition-all duration-200 border border-gray-200">
+                    <a href="#" class="flex items-center justify-between w-full p-3 sm:p-4 bg-gray-50 text-gray-700 rounded-xl hover:bg-gray-100 transition-all duration-200 border border-gray-200">
                         <div class="flex items-center">
-                            <i class="fas fa-list-alt text-xl mr-3 text-gray-500"></i>
+                            <i class="fas fa-list-alt text-lg sm:text-xl mr-3 text-gray-500"></i>
                             <div>
-                                <p class="font-semibold">Kelola Unit</p>
-                                <p class="text-gray-500 text-sm">Edit informasi kostan</p>
+                                <p class="font-semibold text-sm sm:text-base">Kelola Unit</p>
+                                <p class="text-gray-500 text-xs sm:text-sm">Edit informasi kostan</p>
                             </div>
                         </div>
                         <i class="fas fa-arrow-right text-gray-400"></i>
                     </a>
-                    <a href="#" class="flex items-center justify-between w-full p-4 bg-gray-50 text-gray-700 rounded-xl hover:bg-gray-100 transition-all duration-200 border border-gray-200">
+                    <a href="#" class="flex items-center justify-between w-full p-3 sm:p-4 bg-gray-50 text-gray-700 rounded-xl hover:bg-gray-100 transition-all duration-200 border border-gray-200">
                         <div class="flex items-center">
-                            <i class="fas fa-chart-bar text-xl mr-3 text-gray-500"></i>
+                            <i class="fas fa-chart-bar text-lg sm:text-xl mr-3 text-gray-500"></i>
                             <div>
-                                <p class="font-semibold">Laporan</p>
-                                <p class="text-gray-500 text-sm">Lihat statistik lengkap</p>
+                                <p class="font-semibold text-sm sm:text-base">Laporan</p>
+                                <p class="text-gray-500 text-xs sm:text-sm">Lihat statistik lengkap</p>
                             </div>
                         </div>
                         <i class="fas fa-arrow-right text-gray-400"></i>
@@ -170,38 +165,38 @@
             </div>
 
             <!-- Recent Activity Card -->
-            <div class="bg-white shadow-xl rounded-2xl p-6 border border-gray-100">
+            <div class="bg-white shadow-xl rounded-2xl p-4 sm:p-6 border border-gray-100 order-1 lg:order-2">
                 <div class="flex items-center mb-6">
                     <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg flex items-center justify-center mr-3">
                         <i class="fas fa-history text-white text-sm"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900">Aktivitas Terkini</h3>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-900">Aktivitas Terkini</h3>
                 </div>
                 <div class="space-y-4">
                     <div class="flex items-center p-3 bg-green-50 rounded-lg border-l-4 border-green-400">
-                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
                             <i class="fas fa-user-plus text-green-600 text-sm"></i>
                         </div>
-                        <div class="flex-1">
-                            <p class="text-sm font-medium text-gray-900">Penghuni baru mendaftar</p>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium text-gray-900 truncate">Penghuni baru mendaftar</p>
                             <p class="text-xs text-gray-600">Unit A-12 • 2 jam yang lalu</p>
                         </div>
                     </div>
                     <div class="flex items-center p-3 bg-blue-50 rounded-lg border-l-4 border-blue-400">
-                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
                             <i class="fas fa-money-bill-wave text-blue-600 text-sm"></i>
                         </div>
-                        <div class="flex-1">
-                            <p class="text-sm font-medium text-gray-900">Pembayaran diterima</p>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium text-gray-900 truncate">Pembayaran diterima</p>
                             <p class="text-xs text-gray-600">Unit B-05 • 1 hari yang lalu</p>
                         </div>
                     </div>
                     <div class="flex items-center p-3 bg-yellow-50 rounded-lg border-l-4 border-yellow-400">
-                        <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                        <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
                             <i class="fas fa-tools text-yellow-600 text-sm"></i>
                         </div>
-                        <div class="flex-1">
-                            <p class="text-sm font-medium text-gray-900">Permintaan maintenance</p>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium text-gray-900 truncate">Permintaan maintenance</p>
                             <p class="text-xs text-gray-600">Unit C-08 • 2 hari yang lalu</p>
                         </div>
                     </div>
@@ -216,14 +211,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div class="text-center text-sm text-gray-500">
-                <p>&copy; 2025 KOZE Management. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+   
 
 </body>
 </html>

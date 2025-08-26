@@ -47,7 +47,7 @@
             <!-- Benhil -->
             <div class="group cursor-pointer">
                 <div class="relative overflow-hidden rounded-2xl mb-4">
-                    <img src="{{ asset('images/icons/piazza.png') }}" 
+                    <img src="{{ asset('images/icons/benhil.png') }}" 
                          alt="Benhil" 
                          class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none"></div>
