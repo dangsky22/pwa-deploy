@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="flex items-center">
-                    <a href="landing/dashboard.blade.php" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-red-600 transition-colors duration-200">
+                    <a href="{{ route('home') }}" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-red-600 transition-colors duration-200">
                         <i class="fas fa-sign-out-alt"></i>
                         <span class="hidden sm:inline">Logout</span>
                     </a>
