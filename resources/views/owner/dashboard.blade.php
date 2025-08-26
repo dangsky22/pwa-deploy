@@ -131,7 +131,7 @@
                     <h3 class="text-lg sm:text-xl font-semibold text-gray-900">Aksi Cepat</h3>
                 </div>
                 <div class="space-y-4">
-                    <a href="#" class="flex items-center justify-between w-full p-3 sm:p-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
+                    <a href="/dashboard/owner/kost/create" class="flex items-center justify-between w-full p-3 sm:p-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
                         <div class="flex items-center">
                             <i class="fas fa-plus-circle text-lg sm:text-xl mr-3"></i>
                             <div>
@@ -211,7 +211,7 @@
         </div>
     </div>
 
-   
+    
 
 </body>
 </html>
