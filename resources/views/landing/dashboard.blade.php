@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#6777ef"/>
     <link rel="apple-touch-icon" href="{{ asset('logo.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
-    <title>KOZE MANAGEMENT</title>
+    <title>KOZE KOST</title>
     @vite('resources/css/app.css')
     <!-- Add Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -154,51 +154,17 @@
     <!-- Navbar -->
     <nav class="flex justify-between items-center px-4 sm:px-6 lg:px-10 py-4 shadow-md bg-white relative z-20">
         <!-- Logo/Brand -->
-        <h1 class="text-xl sm:text-2xl font-bold text-gray-800">KOZE MANAGEMENT</h1>
+        <h1 class="text-xl sm:text-2xl font-bold text-gray-800">KOZE KOST</h1>
         
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="lg:hidden flex flex-col space-y-1 p-2">
-            <span class="w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
-            <span class="w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
-            <span class="w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
-        </button>
-
-        <!-- Desktop Menu -->
-        <ul class="hidden lg:flex space-x-6 xl:space-x-8 text-gray-700 font-medium">
+        <!-- Responsive Menu - Always Visible -->
+        <ul class="flex flex-wrap items-center space-x-2 sm:space-x-4 lg:space-x-6 xl:space-x-8 text-sm sm:text-base text-gray-700 font-medium">
             <li><a href="#" class="hover:text-teal-600 transition-colors">HOME</a></li>
             <li><a href="#" class="hover:text-teal-600 transition-colors">LAYANAN</a></li>
             <li><a href="#" class="hover:text-teal-600 transition-colors">PLATFORM</a></li>
             <li><a href="#" class="hover:text-teal-600 transition-colors">CONTACTS</a></li>
             <li><a href="{{ route('login') }}" class="hover:text-teal-600 transition-colors">LOGIN</a></li>
-            <li><a href="{{ route('register') }}" class="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors">Register</a></li>
+            <li><a href="{{ route('register') }}" class="bg-teal-600 text-white px-3 py-2 sm:px-6 rounded-lg hover:bg-teal-700 transition-colors text-sm sm:text-base">Register</a></li>
         </ul>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 opacity-0 invisible transition-all duration-300">
-            <div class="fixed right-0 top-0 h-full w-80 max-w-sm bg-white shadow-xl transform translate-x-full transition-transform duration-300">
-                <div class="flex justify-between items-center px-6 py-4 border-b">
-                    <h2 class="text-xl font-bold text-gray-800">Menu</h2>
-                    <button id="close-menu" class="p-2">
-                        <span class="sr-only">Close menu</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-                <ul class="flex flex-col px-6 py-4 space-y-4">
-                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">HOME</a></li>
-                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">LAYANAN</a></li>
-                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">PLATFORM</a></li>
-                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">CONTACTS</a></li>
-                    <li class="pt-4 border-t">
-                        <a href="{{ route('login') }}" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">LOGIN</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('register') }}" class="block bg-teal-600 text-white px-4 py-3 rounded-lg hover:bg-teal-700 transition-colors text-center">Register</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -366,46 +332,9 @@
         </div>
     </div>
 
-    <!-- JavaScript for Mobile Menu -->
+    <!-- JavaScript ONLY for Calendar (Mobile Menu JS Removed) -->
     <script>
-        // Mobile menu functionality
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenuBtn = document.getElementById('close-menu');
-
-        function openMenu() {
-            mobileMenu.classList.remove('opacity-0', 'invisible');
-            mobileMenu.classList.add('opacity-100', 'visible');
-            mobileMenu.querySelector('div').classList.remove('translate-x-full');
-            document.body.classList.add('overflow-hidden');
-        }
-
-        function closeMenu() {
-            mobileMenu.classList.add('opacity-0', 'invisible');
-            mobileMenu.classList.remove('opacity-100', 'visible');
-            mobileMenu.querySelector('div').classList.add('translate-x-full');
-            document.body.classList.remove('overflow-hidden');
-        }
-
-        mobileMenuBtn.addEventListener('click', openMenu);
-        closeMenuBtn.addEventListener('click', closeMenu);
-        
-        // Close menu when clicking on overlay
-        mobileMenu.addEventListener('click', (e) => {
-            if (e.target === mobileMenu) {
-                closeMenu();
-            }
-        });
-
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeMenu();
-                closeCalendar();
-            }
-        });
-
-        // Calendar functionality
+        // Calendar functionality only
         const calendarPopup = document.getElementById('calendar-popup');
         const startDateDesktop = document.getElementById('start-date-desktop');
         const startDateMobile = document.getElementById('start-date-mobile');
@@ -515,7 +444,7 @@
             generateCalendar();
         }
 
-        // Event listeners
+        // Event listeners for calendar only
         startDateDesktop.addEventListener('click', openCalendar);
         startDateMobile.addEventListener('click', openCalendar);
         
@@ -524,6 +453,13 @@
         
         calendarPopup.addEventListener('click', (e) => {
             if (e.target === calendarPopup) {
+                closeCalendar();
+            }
+        });
+
+        // Close calendar on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
                 closeCalendar();
             }
         });
