@@ -15,21 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<script>
-    document.querySelector("form").addEventListener("submit", function(e) {
-        e.preventDefault(); // stop form submit default
-
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-
-        if (email === "owner@demo.com" && password === "password") {
-            window.location.href = "/dashboard/owner"; // arahkan ke dashboard owner
-        } else {
-            alert("Email atau password salah. Gunakan:\nEmail: owner@demo.com\nPassword: password");
-        }
-    });
-</script>
-
 <body class="bg-white font-sans">
     <div class="min-h-screen flex">
         <!-- Left Side - Login Form -->
@@ -172,9 +157,8 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- Toggle Password Script -->
     <script>
-        // Toggle Password Visibility
         document.getElementById('togglePassword').addEventListener('click', function() {
             const password = document.getElementById('password');
             const eyeIcon = document.getElementById('eyeIcon');
@@ -189,25 +173,46 @@
                 eyeIcon.classList.add('fa-eye');
             }
         });
-
-   <script src="{{ asset('/sw.js') }}"></script>
-    <script>
-   if ("serviceWorker" in navigator) {
-      // Register a service worker hosted at the root of the
-      // site using the default scope.
-      navigator.serviceWorker.register("/sw.js").then(
-      (registration) => {
-         console.log("Service worker registration succeeded:", registration);
-      },
-      (error) => {
-         console.error(`Service worker registration failed: ${error}`);
-      },
-    );
-      } else {
-     console.error("Service workers are not supported.");
-      }
     </script>
-       
+
+    <!-- Dummy Login Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function(e) {
+                e.preventDefault(); // stop submit ke Laravel Auth
+
+                const email = document.getElementById("email").value.trim();
+                const password = document.getElementById("password").value.trim();
+
+                if (email === "owner@demo.com" && password === "password") {
+                    window.location.href = "/dashboard/owner";
+                } else if (email === "admin@demo.com" && password === "password") {
+                    window.location.href = "/dashboard/admin";
+                } else if (email === "user@demo.com" && password === "password") {
+                    window.location.href = "/dashboard/user";
+                } else {
+                    alert("Email atau password salah.\n\nCoba salah satu akun berikut:\n- owner@demo.com / password\n- admin@demo.com / password\n- user@demo.com / password");
+                }
+            });
+        });
+    </script>
+
+    <!-- Service Worker -->
+    <script src="{{ asset('/sw.js') }}"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/sw.js").then(
+                (registration) => {
+                    console.log("Service worker registration succeeded:", registration);
+                },
+                (error) => {
+                    console.error(`Service worker registration failed: ${error}`);
+                }
+            );
+        } else {
+            console.error("Service workers are not supported.");
+        }
     </script>
 </body>
 </html>

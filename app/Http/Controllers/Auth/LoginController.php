@@ -21,7 +21,14 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($request->only('email', 'password'))) {
-            return redirect()->intended('/dashboard');
+            $user = Auth::user();
+
+            // Cek role user
+            if ($user->role === 'owner') {
+                return redirect()->route('dashboard.owner'); // Owner ke dashboard owner
+            }
+
+            return redirect()->route('dashboard'); // User biasa ke dashboard umum
         }
 
         return back()->withErrors([
