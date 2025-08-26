@@ -142,3 +142,7 @@ Route::get('/home', function () {
 Route::fallback(function () {
     return view('errors.404');
 });
+
+Route::get('/dashboard/owner', function () {
+    return view('owner.dashboard');
+})->name('dashboard.owner');

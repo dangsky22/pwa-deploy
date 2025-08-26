@@ -14,6 +14,22 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
+<script>
+    document.querySelector("form").addEventListener("submit", function(e) {
+        e.preventDefault(); // stop form submit default
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        if (email === "owner@demo.com" && password === "password") {
+            window.location.href = "/dashboard/owner"; // arahkan ke dashboard owner
+        } else {
+            alert("Email atau password salah. Gunakan:\nEmail: owner@demo.com\nPassword: password");
+        }
+    });
+</script>
+
 <body class="bg-white font-sans">
     <div class="min-h-screen flex">
         <!-- Left Side - Login Form -->
