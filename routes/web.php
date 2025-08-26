@@ -147,21 +147,24 @@ Route::get('/dashboard/owner', function () {
     return view('owner.dashboard');
 })->name('dashboard.owner');
 
-// Tambahkan route ini di file web.php
-Route::middleware('auth')->group(function () {
-    // Route yang sudah ada untuk dashboard owner
+/*
+|--------------------------------------------------------------------------
+| Owner Routes (untuk pemilik kost)
+|--------------------------------------------------------------------------
+*/
+Route::middleware('auth')->prefix('owner')->name('owner.')->group(function () {
+    // Dashboard Owner
     Route::get('/dashboard/owner', function () {
-        return view('owner.dashboard');
-    })->name('dashboard.owner');
+    return view('owner.dashboard');
+})->name('owner.dashboard')->middleware('auth');
     
-    // Tambahkan route baru untuk create kost
-    Route::get('/dashboard/owner/kost/create', function () {
-        return view('owner.kost.create');
-    })->name('owner.kost.create');
-    
-    // Route untuk menyimpan data kost (opsional)
-    Route::post('/dashboard/owner/kost', function () {
-        // Logic untuk menyimpan data kost
-        return redirect()->route('dashboard.owner')->with('success', 'Unit kost berhasil ditambahkan!');
-    })->name('owner.kost.store');
+    // Kost Management untuk Owner
+    Route::prefix('kost')->name('kost.')->group(function () {
+        Route::get('/create', [\App\Http\Controllers\Owner\Controller::class, 'create'])->name('create');
+        Route::post('/', [\App\Http\Controllers\Owner\Controller::class, 'store'])->name('store');
+        Route::get('/', [\App\Http\Controllers\Owner\Controller::class, 'index'])->name('index');
+        Route::get('/{id}/edit', [\App\Http\Controllers\Owner\Controller::class, 'edit'])->name('edit');
+        Route::put('/{id}', [\App\Http\Controllers\Owner\Controller::class, 'update'])->name('update');
+        Route::delete('/{id}', [\App\Http\Controllers\Owner\Controller::class, 'destroy'])->name('destroy');
+    });
 });
