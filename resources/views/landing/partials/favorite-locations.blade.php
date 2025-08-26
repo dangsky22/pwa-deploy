@@ -11,16 +11,17 @@
 
         <!-- Locations Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
-            <!-- Anarta -->
+              <!-- Benhil -->
             <div class="group cursor-pointer">
                 <div class="relative overflow-hidden rounded-2xl mb-4">
-                    <img src="{{ asset('images/icons/anarta.png') }}" 
-                         alt="Anarta" 
+                    <img src="{{ asset('images/icons/.png') }}" 
+                         alt="Benhil" 
                          class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none"></div>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-900 text-center">Anarta</h3>
+                <h3 class="text-xl font-semibold text-gray-900 text-center">Benhil</h3>
             </div>
+
 
             <!-- Alesha -->
             <div class="group cursor-pointer">
@@ -44,17 +45,16 @@
                 <h3 class="text-xl font-semibold text-gray-900 text-center">The West End</h3>
             </div>
 
-             <!-- The West End -->
+            <!-- Anarta -->
             <div class="group cursor-pointer">
                 <div class="relative overflow-hidden rounded-2xl mb-4">
-                    <img src="{{ asset('images/icons/benhil.png') }}" 
-                         alt="Benhil" 
+                    <img src="{{ asset('images/icons/anarta.png') }}" 
+                         alt="Anarta" 
                          class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none"></div>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-900 text-center">Benhil</h3>
+                <h3 class="text-xl font-semibold text-gray-900 text-center">Anarta</h3>
             </div>
-
             <!-- Piaza The Mozia -->
             <div class="group cursor-pointer">
                 <div class="relative overflow-hidden rounded-2xl mb-4">
