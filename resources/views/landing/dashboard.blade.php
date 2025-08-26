@@ -321,8 +321,14 @@
     <!-- Add some spacing after hero for the overlapping search bar -->
     <div class="h-16"></div>
 
-    <!-- Include Section Masa Depan Hunian yang Fleksibel -->
+     <!-- Include Section Masa Depan Hunian yang Fleksibel -->
     @include('landing.partials.flexible-housing')
+
+    <!-- Include Section Kenapa Memilih Koze -->
+    @include('landing.partials.why-choose-koze')
+
+    <!-- Include Section Pilih Lokasi Favorit -->
+    @include('landing.partials.favorite-locations')
 
     <!-- Calendar Popup -->
     <div class="calendar-overlay" id="calendar-popup">
@@ -409,7 +415,7 @@
 
         let currentDate = new Date();
         let selectedDate = null;
-        let currentMonth = new Date(2024, 11); // Start with December 2024
+        let currentMonth = new Date(2025, 08);
 
         const monthNames = [
             'January', 'February', 'March', 'April', 'May', 'June',
