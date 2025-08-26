@@ -146,3 +146,25 @@ Route::fallback(function () {
 Route::get('/dashboard/owner', function () {
     return view('owner.dashboard');
 })->name('dashboard.owner');
+
+/*
+|--------------------------------------------------------------------------
+| Owner Routes (untuk pemilik kost)
+|--------------------------------------------------------------------------
+*/
+Route::middleware('auth')->prefix('owner')->name('owner.')->group(function () {
+    // Dashboard Owner
+    Route::get('/dashboard/owner', function () {
+    return view('owner.dashboard');
+})->name('owner.dashboard')->middleware('auth');
+    
+    // Kost Management untuk Owner
+    Route::prefix('kost')->name('kost.')->group(function () {
+        Route::get('/create', [\App\Http\Controllers\Owner\Controller::class, 'create'])->name('create');
+        Route::post('/', [\App\Http\Controllers\Owner\Controller::class, 'store'])->name('store');
+        Route::get('/', [\App\Http\Controllers\Owner\Controller::class, 'index'])->name('index');
+        Route::get('/{id}/edit', [\App\Http\Controllers\Owner\Controller::class, 'edit'])->name('edit');
+        Route::put('/{id}', [\App\Http\Controllers\Owner\Controller::class, 'update'])->name('update');
+        Route::delete('/{id}', [\App\Http\Controllers\Owner\Controller::class, 'destroy'])->name('destroy');
+    });
+});
