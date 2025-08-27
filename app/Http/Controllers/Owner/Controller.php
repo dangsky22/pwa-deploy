@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Owner;
 
+use App\Http\Controllers\Controller as BaseController;
 use Illuminate\Http\Request;
-use App\Models\KostanUnit; // Model untuk unit kostan
 
-class OwnerController extends Controller
+class Controller extends BaseController
 {
-    public function dashboard()
+    public function index()
     {
-        return view('owner.dashboard');
+        // Logic untuk menampilkan daftar kost milik owner
+        return view('owner.kost.index');
     }
 
     public function create()
@@ -19,30 +20,27 @@ class OwnerController extends Controller
 
     public function store(Request $request)
     {
-        // Logic untuk menyimpan unit baru
-        $validated = $request->validate([
-            'nama_unit' => 'required|string|max:255',
-            'tipe_unit' => 'required|in:single,sharing,studio',
-            'harga_bulanan' => 'required|numeric|min:0',
-            'ukuran_kamar' => 'required|numeric|min:0',
-            'alamat' => 'required|string',
-            'kecamatan' => 'required|string',
-            'kota' => 'required|string',
-            'deskripsi' => 'nullable|string',
-            'fasilitas' => 'array',
-            'foto_unit.*' => 'image|mimes:jpeg,png,jpg,gif|max:10240'
-        ]);
-
-        // Save to database
-        KostanUnit::create($validated);
+        // Logic untuk menyimpan kost baru
+        // Validasi dan simpan data
         
-        return redirect()->route('owner.dashboard')->with('success', 'Unit berhasil ditambahkan!');
+        return redirect()->route('owner.dashboard')->with('success', 'Unit kost berhasil ditambahkan!');
     }
 
-    public function manage()
+    public function edit($id)
     {
-        // Logic untuk menampilkan semua unit
-        $units = KostanUnit::where('owner_id', auth()->id())->get();
-        return view('owner.manage', compact('units'));
+        // Logic untuk edit kost
+        return view('owner.edit', compact('id'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Logic untuk update kost
+        return redirect()->route('owner.dashboard')->with('success', 'Unit kost berhasil diupdate!');
+    }
+
+    public function destroy($id)
+    {
+        // Logic untuk hapus kost
+        return redirect()->route('owner.dashboard')->with('success', 'Unit kost berhasil dihapus!');
     }
 }
