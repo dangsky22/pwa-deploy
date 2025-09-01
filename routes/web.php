@@ -143,7 +143,24 @@ Route::fallback(function () {
     return view('errors.404');
 });
 
-Route::get('/dashboard/owner', function () {
-    return view('owner.dashboard');
-})->name('dashboard.owner');
+// Owner Routes
+Route::middleware(['auth', 'role:owner'])->group(function () {
+    Route::get('/dashboard/owner', function () {
+        return view('owner.dashboard');
+    })->name('dashboard.owner');
+});
+
+// Penghuni Routes
+Route::middleware(['auth', 'role:penghuni'])->group(function () {
+    Route::get('/dashboard/penghuni', function () {
+        return view('penghuni.dashboard');
+    })->name('dashboard.penghuni');
+});
+
+// Admin Routes
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/dashboard/admin', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+});
 

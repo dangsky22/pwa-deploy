@@ -30,7 +30,7 @@ class RegisterController extends Controller
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'role' => ['required', 'in:owner,penyewa'],
+            'role' => ['required', 'in:owner,penghuni'],
         ], [
             'first_name.required' => 'First name is required.',
             'last_name.required' => 'Last name is required.',
@@ -58,10 +58,13 @@ class RegisterController extends Controller
         Auth::login($user);
 
         // Redirect based on role
-        if ($user->role === 'owner') {
-            return redirect()->route('owner.dashboard')->with('success', 'Account created successfully! Welcome to KOZE Management.');
-        } else {
-            return redirect()->route('dashboard')->with('success', 'Account created successfully! Welcome to KOZE Management.');
+        switch ($user->role) {
+            case 'owner':
+                return redirect()->route('dashboard.owner')->with('success', 'Account created successfully! Welcome to KOZE Management.');
+            case 'penghuni':
+                return redirect()->route('dashboard.penghuni')->with('success', 'Account created successfully! Welcome to KOZE Management.');
+            default:
+                return redirect()->route('dashboard')->with('success', 'Account created successfully! Welcome to KOZE Management.');
         }
     }
 }

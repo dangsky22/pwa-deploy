@@ -47,10 +47,10 @@
                     </button>
                     
                     <button 
-                        onclick="selectRole('penyewa')" 
+                        onclick="selectRole('penghuni')" 
                         class="w-full bg-teal-700 text-white py-4 px-6 rounded-full font-semibold hover:bg-teal-800 transition-colors text-lg"
                     >
-                        Penyewa
+                        Penghuni
                     </button>
                 </div>
 

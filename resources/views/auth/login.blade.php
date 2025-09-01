@@ -175,26 +175,16 @@
         });
     </script>
 
-    <!-- Dummy Login Script -->
+    <!-- Flash Messages -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const form = document.querySelector("form");
-            form.addEventListener("submit", function(e) {
-                e.preventDefault(); // stop submit ke Laravel Auth
-
-                const email = document.getElementById("email").value.trim();
-                const password = document.getElementById("password").value.trim();
-
-                if (email === "owner@demo.com" && password === "password") {
-                    window.location.href = "/dashboard/owner";
-                } else if (email === "admin@demo.com" && password === "password") {
-                    window.location.href = "/dashboard/admin";
-                } else if (email === "user@demo.com" && password === "password") {
-                    window.location.href = "/dashboard/user";
-                } else {
-                    alert("Email atau password salah.\n\nCoba salah satu akun berikut:\n- owner@demo.com / password\n- admin@demo.com / password\n- user@demo.com / password");
-                }
-            });
+            @if(session('status'))
+                alert("{{ session('status') }}");
+            @endif
+            
+            @if($errors->any())
+                alert("{{ $errors->first() }}");
+            @endif
         });
     </script>
 
