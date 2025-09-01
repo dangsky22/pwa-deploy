@@ -29,12 +29,34 @@
                     </button>
                     
                     <!-- User Menu -->
-                    <div class="flex items-center space-x-2">
-                        <div class="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center">
-                            <span class="text-white text-sm font-medium">AD</span>
+                    <div class="relative">
+                        <button id="admin-menu-btn" class="flex items-center space-x-2 text-gray-700 hover:text-gray-900">
+                            <div class="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center">
+                                <span class="text-white text-sm font-medium">AD</span>
+                            </div>
+                            <span class="hidden sm:block">Admin</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        
+                        <!-- Dropdown Menu -->
+                        <div id="admin-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-user mr-2"></i>Profile
+                            </a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-cog mr-2"></i>Settings
+                            </a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-shield-alt mr-2"></i>Security
+                            </a>
+                            <hr class="my-1">
+                            <form action="{{ route('logout') }}" method="POST" class="block">
+                                @csrf
+                                <button type="submit" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">
+                                    <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                                </button>
+                            </form>
                         </div>
-                        <span class="hidden sm:block text-gray-700">Admin</span>
-                        <i class="fas fa-chevron-down text-xs text-gray-400"></i>
                     </div>
                 </div>
             </div>
@@ -426,6 +448,22 @@
         mobileSidebar.addEventListener('click', (e) => {
             if (e.target === mobileSidebar) {
                 mobileSidebar.classList.add('hidden');
+            }
+        });
+
+        // Admin dropdown functionality
+        const adminMenuBtn = document.getElementById('admin-menu-btn');
+        const adminDropdown = document.getElementById('admin-dropdown');
+
+        adminMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            adminDropdown.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!adminMenuBtn.contains(e.target) && !adminDropdown.contains(e.target)) {
+                adminDropdown.classList.add('hidden');
             }
         });
     </script>

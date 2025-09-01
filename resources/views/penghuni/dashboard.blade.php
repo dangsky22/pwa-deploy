@@ -17,6 +17,7 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     <h1 class="text-xl font-bold text-gray-900">KOZE</h1>
+                    <span class="ml-2 text-sm text-gray-500">Dashboard</span>
                 </div>
                 
                 <!-- User Menu -->
@@ -335,6 +336,22 @@
         mobileSidebar.addEventListener('click', (e) => {
             if (e.target === mobileSidebar) {
                 mobileSidebar.classList.add('hidden');
+            }
+        });
+
+        // User dropdown functionality
+        const userMenuBtn = document.getElementById('user-menu-btn');
+        const userDropdown = document.getElementById('user-dropdown');
+
+        userMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userDropdown.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!userMenuBtn.contains(e.target) && !userDropdown.contains(e.target)) {
+                userDropdown.classList.add('hidden');
             }
         });
     </script>
