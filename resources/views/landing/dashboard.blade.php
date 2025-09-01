@@ -275,6 +275,9 @@
     <!-- Include Section Pilih Lokasi Favorit -->
     @include('landing.partials.favorite-locations')
 
+    <!-- Include Section Contact -->
+    @include('landing.partials.contact')
+
     <!-- Calendar Popup -->
     <div class="calendar-overlay" id="calendar-popup">
         <div class="calendar-popup">

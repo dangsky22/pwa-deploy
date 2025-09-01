@@ -29,7 +29,7 @@
                     <li><a href="/" class="hover:text-teal-600 transition-colors">HOME</a></li>
                     <li><a href="#why-choose-koze" class="hover:text-teal-600 transition-colors scroll-smooth">LAYANAN</a></li>
                     <li><a href="#" class="hover:text-teal-600 transition-colors">PLATFORM</a></li>
-                    <li><a href="#" class="hover:text-teal-600 transition-colors">CONTACTS</a></li>
+                    <li><a href="#contact" class="hover:text-teal-600 transition-colors scroll-smooth">CONTACTS</a></li>
                     <li><a href="{{ route('login') }}" class="hover:text-teal-600 transition-colors">LOGIN</a></li>
                     <li><a href="{{ route('register') }}" class="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors">Register</a></li>
                 </ul>
@@ -58,7 +58,7 @@
                     <li><a href="/" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">HOME</a></li>
                     <li><a href="#why-choose-koze" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors scroll-smooth">LAYANAN</a></li>
                     <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">PLATFORM</a></li>
-                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">CONTACTS</a></li>
+                    <li><a href="#contact" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors scroll-smooth">CONTACTS</a></li>
                     <li class="pt-4 border-t">
                         <a href="{{ route('login') }}" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">LOGIN</a>
                     </li>
