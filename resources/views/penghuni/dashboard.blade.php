@@ -17,7 +17,6 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     <h1 class="text-xl font-bold text-gray-900">KOZE</h1>
-                    <span class="ml-2 text-sm text-gray-500">Dashboard</span>
                 </div>
                 
                 <!-- User Menu -->
