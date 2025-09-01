@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Dashboard Penghuni - KOZE MANAGEMENT</title>
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -40,12 +41,27 @@
                                 <i class="fas fa-cog mr-2"></i>Settings
                             </a>
                             <hr class="my-1">
-                            <form action="{{ route('logout') }}" method="POST" class="block">
+                            <form action="/" method="POST" class="block" id="logout-form">
                                 @csrf
-                                <button type="submit" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">
+                                <input type="hidden" name="_method" value="POST">
+                                <button type="button" onclick="handleLogout()" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">
                                     <i class="fas fa-sign-out-alt mr-2"></i>Logout
                                 </button>
                             </form>
+                            <script>
+                                function handleLogout() {
+                                    fetch('/logout', {
+                                        method: 'POST',
+                                        headers: {
+                                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                                        },
+                                    }).then(() => {
+                                        window.location.href = '/';
+                                    });
+                                }
+                            </script>
+                            <!-- Add CSRF Token meta -->
+                            <meta name="csrf-token" content="{{ csrf_token() }}">
                         </div>
                     </div>
                 </div>
