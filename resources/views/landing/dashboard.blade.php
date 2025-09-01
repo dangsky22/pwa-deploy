@@ -3,7 +3,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="widt        <!-- Desktop Menu -->
+        <ul class="hidden lg:flex space-x-6 xl:space-x-8 text-gray-700 font-medium">
+            <li><a href="/" class="hover:text-teal-600 transition-colors">HOME</a></li>
+            <li><a href="#why-choose-koze" class="hover:text-teal-600 transition-colors scroll-smooth">LAYANAN</a></li>
+            <li><a href="#" class="hover:text-teal-600 transition-colors">PLATFORM</a></li>
+            <li><a href="#" class="hover:text-teal-600 transition-colors">CONTACTS</a></li>
+            <li><a href="{{ route('login') }}" class="hover:text-teal-600 transition-colors">LOGIN</a></li>
+            <li><a href="{{ route('register') }}" class="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors">Register</a></li>
+        </ul>width, initial-scale=1.0">
     <!-- PWA  -->
     <meta name="theme-color" content="#6777ef"/>
     <link rel="apple-touch-icon" href="{{ asset('logo.png') }}">
@@ -170,7 +178,7 @@
             <li><a href="#" class="hover:text-teal-600 transition-colors">PLATFORM</a></li>
             <li><a href="#" class="hover:text-teal-600 transition-colors">CONTACTS</a></li>
             <li><a href="{{ route('login') }}" class="hover:text-teal-600 transition-colors">LOGIN</a></li>
-            <li><a href="{{ route('register') }}" class="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors">Register</a></li>
+            <li><a href="{{ route('register') }}" class="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors">REGISTER</a></li>
         </ul>
 
         <!-- Mobile Menu Overlay -->
@@ -186,8 +194,8 @@
                     </button>
                 </div>
                 <ul class="flex flex-col px-6 py-4 space-y-4">
-                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">HOME</a></li>
-                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">LAYANAN</a></li>
+                    <li><a href="/" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">HOME</a></li>
+                    <li><a href="#why-choose-koze" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors scroll-smooth">LAYANAN</a></li>
                     <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">PLATFORM</a></li>
                     <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">CONTACTS</a></li>
                     <li class="pt-4 border-t">
@@ -325,7 +333,9 @@
     @include('landing.partials.flexible-housing')
 
     <!-- Include Section Kenapa Memilih Koze -->
-    @include('landing.partials.why-choose-koze')
+    <div id="why-choose-koze">
+        @include('landing.partials.why-choose-koze')
+    </div>
 
     <!-- Include Section Pilih Lokasi Favorit -->
     @include('landing.partials.favorite-locations')
@@ -534,20 +544,35 @@
 
     <script src="{{ asset('/sw.js') }}"></script>
     <script>
-   if ("serviceWorker" in navigator) {
-      // Register a service worker hosted at the root of the
-      // site using the default scope.
-      navigator.serviceWorker.register("/sw.js").then(
-      (registration) => {
-         console.log("Service worker registration succeeded:", registration);
-      },
-      (error) => {
-         console.error(`Service worker registration failed: ${error}`);
-      },
-    );
-      } else {
-     console.error("Service workers are not supported.");
-      }
+    if ("serviceWorker" in navigator) {
+        // Register a service worker hosted at the root of the
+        // site using the default scope.
+        navigator.serviceWorker.register("/sw.js").then(
+        (registration) => {
+            console.log("Service worker registration succeeded:", registration);
+        },
+        (error) => {
+            console.error(`Service worker registration failed: ${error}`);
+        },
+        );
+    } else {
+        console.error("Service workers are not supported.");
+    }
+
+    // Smooth scroll functionality
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').slice(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
     </script>
 </body>
 </html>
