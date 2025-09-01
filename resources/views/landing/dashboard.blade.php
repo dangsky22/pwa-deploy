@@ -1,24 +1,8 @@
-{{-- resources/views/landing/dashboard.blade.php --}}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="widt        <!-- Desktop Menu -->
-        <ul class="hidden lg:flex space-x-6 xl:space-x-8 text-gray-700 font-medium">
-            <li><a href="/" class="hover:text-teal-600 transition-colors">HOME</a></li>
-            <li><a href="#why-choose-koze" class="hover:text-teal-600 transition-colors scroll-smooth">LAYANAN</a></li>
-            <li><a href="#" class="hover:text-teal-600 transition-colors">PLATFORM</a></li>
-            <li><a href="#" class="hover:text-teal-600 transition-colors">CONTACTS</a></li>
-            <li><a href="{{ route('login') }}" class="hover:text-teal-600 transition-colors">LOGIN</a></li>
-            <li><a href="{{ route('register') }}" class="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors">Register</a></li>
-        </ul>width, initial-scale=1.0">
-    <!-- PWA  -->
-    <meta name="theme-color" content="#6777ef"/>
-    <link rel="apple-touch-icon" href="{{ asset('logo.png') }}">
-    <link rel="manifest" href="{{ asset('/manifest.json') }}">
-    <title>KOZE KOST</title>
-    @vite('resources/css/app.css')
-    <!-- Add Font Awesome for icons -->
+@extends('layouts.guest')
+
+@section('title', 'KOZE KOST')
+
+@section('head')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Calendar Popup Styles -->
@@ -156,58 +140,9 @@
             color: #6B7280;
         }
     </style>
-</head>
-<body class="bg-white font-sans text-gray-800">
+@endsection
 
-    <!-- Navbar -->
-    <nav class="flex justify-between items-center px-4 sm:px-6 lg:px-10 py-4 shadow-md bg-white relative z-20">
-        <!-- Logo/Brand -->
-        <h1 class="text-xl sm:text-2xl font-bold text-gray-800">KOZE KOST</h1>
-        
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="lg:hidden flex flex-col space-y-1 p-2">
-            <span class="w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
-            <span class="w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
-            <span class="w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
-        </button>
-
-        <!-- Desktop Menu -->
-        <ul class="hidden lg:flex space-x-6 xl:space-x-8 text-gray-700 font-medium">
-            <li><a href="#" class="hover:text-teal-600 transition-colors">HOME</a></li>
-            <li><a href="#" class="hover:text-teal-600 transition-colors">LAYANAN</a></li>
-            <li><a href="#" class="hover:text-teal-600 transition-colors">PLATFORM</a></li>
-            <li><a href="#" class="hover:text-teal-600 transition-colors">CONTACTS</a></li>
-            <li><a href="{{ route('login') }}" class="hover:text-teal-600 transition-colors">LOGIN</a></li>
-            <li><a href="{{ route('register') }}" class="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors">REGISTER</a></li>
-        </ul>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 opacity-0 invisible transition-all duration-300">
-            <div class="fixed right-0 top-0 h-full w-80 max-w-sm bg-white shadow-xl transform translate-x-full transition-transform duration-300">
-                <div class="flex justify-between items-center px-6 py-4 border-b">
-                    <h2 class="text-xl font-bold text-gray-800">Menu</h2>
-                    <button id="close-menu" class="p-2">
-                        <span class="sr-only">Close menu</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-                <ul class="flex flex-col px-6 py-4 space-y-4">
-                    <li><a href="/" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">HOME</a></li>
-                    <li><a href="#why-choose-koze" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors scroll-smooth">LAYANAN</a></li>
-                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">PLATFORM</a></li>
-                    <li><a href="#" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">CONTACTS</a></li>
-                    <li class="pt-4 border-t">
-                        <a href="{{ route('login') }}" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">LOGIN</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('register') }}" class="block bg-teal-600 text-white px-4 py-3 rounded-lg hover:bg-teal-700 transition-colors text-center">Register</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+@section('content')
 
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center">
@@ -376,203 +311,155 @@
         </div>
     </div>
 
-    <!-- JavaScript for Mobile Menu -->
-    <script>
-        // Mobile menu functionality
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenuBtn = document.getElementById('close-menu');
+@endsection
 
-        function openMenu() {
-            mobileMenu.classList.remove('opacity-0', 'invisible');
-            mobileMenu.classList.add('opacity-100', 'visible');
-            mobileMenu.querySelector('div').classList.remove('translate-x-full');
-            document.body.classList.add('overflow-hidden');
-        }
+@push('scripts')
+<script>
+// Calendar functionality
+const calendarPopup = document.getElementById('calendar-popup');
+const startDateDesktop = document.getElementById('start-date-desktop');
+const startDateMobile = document.getElementById('start-date-mobile');
+const prevMonthBtn = document.getElementById('prev-month');
+const nextMonthBtn = document.getElementById('next-month');
+const calendarTitle = document.getElementById('calendar-title');
 
-        function closeMenu() {
-            mobileMenu.classList.add('opacity-0', 'invisible');
-            mobileMenu.classList.remove('opacity-100', 'visible');
-            mobileMenu.querySelector('div').classList.add('translate-x-full');
-            document.body.classList.remove('overflow-hidden');
-        }
+let currentDate = new Date();
+let selectedDate = null;
+let currentMonth = new Date(2025, 08);
 
-        mobileMenuBtn.addEventListener('click', openMenu);
-        closeMenuBtn.addEventListener('click', closeMenu);
+const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+];
+
+function openCalendar() {
+    calendarPopup.style.display = 'flex';
+    generateCalendar();
+    document.body.classList.add('overflow-hidden');
+}
+
+function closeCalendar() {
+    calendarPopup.style.display = 'none';
+    document.body.classList.remove('overflow-hidden');
+}
+
+function generateCalendar() {
+    const calendar = document.getElementById('current-calendar');
+    calendar.innerHTML = '';
+    
+    const year = currentMonth.getFullYear();
+    const monthIndex = currentMonth.getMonth();
+    const firstDay = new Date(year, monthIndex, 1).getDay();
+    const lastDate = new Date(year, monthIndex + 1, 0).getDate();
+    const lastDatePrevMonth = new Date(year, monthIndex, 0).getDate();
+    
+    // Previous month's trailing days
+    for (let i = firstDay - 1; i >= 0; i--) {
+        const day = document.createElement('div');
+        day.className = 'calendar-day other-month';
+        day.textContent = lastDatePrevMonth - i;
+        calendar.appendChild(day);
+    }
+    
+    // Current month's days
+    for (let date = 1; date <= lastDate; date++) {
+        const day = document.createElement('div');
+        day.className = 'calendar-day';
+        day.textContent = date;
         
-        // Close menu when clicking on overlay
-        mobileMenu.addEventListener('click', (e) => {
-            if (e.target === mobileMenu) {
-                closeMenu();
-            }
-        });
-
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeMenu();
+        // Highlight December 9th as selected initially
+        if (monthIndex === 11 && date === 9 && year === 2024) {
+            day.classList.add('selected');
+            selectedDate = new Date(year, monthIndex, date);
+        }
+        
+        day.addEventListener('click', () => {
+            // Remove previous selection
+            document.querySelectorAll('.calendar-day.selected').forEach(d => {
+                d.classList.remove('selected');
+            });
+            
+            // Add selection to clicked day
+            day.classList.add('selected');
+            selectedDate = new Date(year, monthIndex, date);
+            
+            // Update input fields
+            const dateStr = selectedDate.toLocaleDateString('id-ID', {
+                day: '2-digit',
+                month: '2-digit', 
+                year: 'numeric'
+            });
+            startDateDesktop.value = dateStr;
+            startDateMobile.value = dateStr;
+            
+            // Close calendar after selection
+            setTimeout(() => {
                 closeCalendar();
-            }
+            }, 300);
         });
-
-        // Calendar functionality
-        const calendarPopup = document.getElementById('calendar-popup');
-        const startDateDesktop = document.getElementById('start-date-desktop');
-        const startDateMobile = document.getElementById('start-date-mobile');
-        const prevMonthBtn = document.getElementById('prev-month');
-        const nextMonthBtn = document.getElementById('next-month');
-        const calendarTitle = document.getElementById('calendar-title');
-
-        let currentDate = new Date();
-        let selectedDate = null;
-        let currentMonth = new Date(2025, 08);
-
-        const monthNames = [
-            'January', 'February', 'March', 'April', 'May', 'June',
-            'July', 'August', 'September', 'October', 'November', 'December'
-        ];
-
-        function openCalendar() {
-            calendarPopup.style.display = 'flex';
-            generateCalendar();
-            document.body.classList.add('overflow-hidden');
-        }
-
-        function closeCalendar() {
-            calendarPopup.style.display = 'none';
-            document.body.classList.remove('overflow-hidden');
-        }
-
-        function generateCalendar() {
-            const calendar = document.getElementById('current-calendar');
-            calendar.innerHTML = '';
-            
-            const year = currentMonth.getFullYear();
-            const monthIndex = currentMonth.getMonth();
-            const firstDay = new Date(year, monthIndex, 1).getDay();
-            const lastDate = new Date(year, monthIndex + 1, 0).getDate();
-            const lastDatePrevMonth = new Date(year, monthIndex, 0).getDate();
-            
-            // Previous month's trailing days
-            for (let i = firstDay - 1; i >= 0; i--) {
-                const day = document.createElement('div');
-                day.className = 'calendar-day other-month';
-                day.textContent = lastDatePrevMonth - i;
-                calendar.appendChild(day);
-            }
-            
-            // Current month's days
-            for (let date = 1; date <= lastDate; date++) {
-                const day = document.createElement('div');
-                day.className = 'calendar-day';
-                day.textContent = date;
-                
-                // Highlight December 9th as selected initially
-                if (monthIndex === 11 && date === 9 && year === 2024) {
-                    day.classList.add('selected');
-                    selectedDate = new Date(year, monthIndex, date);
-                }
-                
-                day.addEventListener('click', () => {
-                    // Remove previous selection
-                    document.querySelectorAll('.calendar-day.selected').forEach(d => {
-                        d.classList.remove('selected');
-                    });
-                    
-                    // Add selection to clicked day
-                    day.classList.add('selected');
-                    selectedDate = new Date(year, monthIndex, date);
-                    
-                    // Update input fields
-                    const dateStr = selectedDate.toLocaleDateString('id-ID', {
-                        day: '2-digit',
-                        month: '2-digit', 
-                        year: 'numeric'
-                    });
-                    startDateDesktop.value = dateStr;
-                    startDateMobile.value = dateStr;
-                    
-                    // Close calendar after selection
-                    setTimeout(() => {
-                        closeCalendar();
-                    }, 300);
-                });
-                
-                calendar.appendChild(day);
-            }
-            
-            // Next month's leading days to fill the grid
-            const totalCells = calendar.children.length;
-            const remainingCells = 42 - totalCells; // 6 weeks × 7 days
-            for (let date = 1; date <= remainingCells && date <= 15; date++) {
-                const day = document.createElement('div');
-                day.className = 'calendar-day other-month';
-                day.textContent = date;
-                calendar.appendChild(day);
-            }
-
-            // Update titles
-            document.getElementById('current-month-title').textContent = monthNames[monthIndex];
-            calendarTitle.textContent = `${monthNames[monthIndex]} ${year}`;
-        }
-
-        function navigateMonth(direction) {
-            if (direction === 'prev') {
-                currentMonth.setMonth(currentMonth.getMonth() - 1);
-            } else {
-                currentMonth.setMonth(currentMonth.getMonth() + 1);
-            }
-            generateCalendar();
-        }
-
-        // Event listeners
-        startDateDesktop.addEventListener('click', openCalendar);
-        startDateMobile.addEventListener('click', openCalendar);
         
-        prevMonthBtn.addEventListener('click', () => navigateMonth('prev'));
-        nextMonthBtn.addEventListener('click', () => navigateMonth('next'));
-        
-        calendarPopup.addEventListener('click', (e) => {
-            if (e.target === calendarPopup) {
-                closeCalendar();
-            }
-        });
-
-        // Initialize calendar
-        generateCalendar();
-    </script>
-
-    <script src="{{ asset('/sw.js') }}"></script>
-    <script>
-    if ("serviceWorker" in navigator) {
-        // Register a service worker hosted at the root of the
-        // site using the default scope.
-        navigator.serviceWorker.register("/sw.js").then(
-        (registration) => {
-            console.log("Service worker registration succeeded:", registration);
-        },
-        (error) => {
-            console.error(`Service worker registration failed: ${error}`);
-        },
-        );
-    } else {
-        console.error("Service workers are not supported.");
+        calendar.appendChild(day);
+    }
+    
+    // Next month's leading days to fill the grid
+    const totalCells = calendar.children.length;
+    const remainingCells = 42 - totalCells; // 6 weeks × 7 days
+    for (let date = 1; date <= remainingCells && date <= 15; date++) {
+        const day = document.createElement('div');
+        day.className = 'calendar-day other-month';
+        day.textContent = date;
+        calendar.appendChild(day);
     }
 
-    // Smooth scroll functionality
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').slice(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
+    // Update titles
+    document.getElementById('current-month-title').textContent = monthNames[monthIndex];
+    calendarTitle.textContent = `${monthNames[monthIndex]} ${year}`;
+}
+
+function navigateMonth(direction) {
+    if (direction === 'prev') {
+        currentMonth.setMonth(currentMonth.getMonth() - 1);
+    } else {
+        currentMonth.setMonth(currentMonth.getMonth() + 1);
+    }
+    generateCalendar();
+}
+
+// Event listeners
+startDateDesktop?.addEventListener('click', openCalendar);
+startDateMobile?.addEventListener('click', openCalendar);
+
+prevMonthBtn?.addEventListener('click', () => navigateMonth('prev'));
+nextMonthBtn?.addEventListener('click', () => navigateMonth('next'));
+
+calendarPopup?.addEventListener('click', (e) => {
+    if (e.target === calendarPopup) {
+        closeCalendar();
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeCalendar();
+    }
+});
+
+// Initialize calendar
+generateCalendar();
+
+// Smooth scroll functionality for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').slice(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     });
-    </script>
-</body>
-</html>
+});
+</script>
+@endpush
