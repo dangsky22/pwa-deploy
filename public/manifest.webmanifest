@@ -1,7 +1,7 @@
 {
-  "name": "Belajar DNG",
-  "short_name": "DNG",
-  "description": "Aplikasi Belajar DNG",
+  "name": "KOZE",
+  "short_name": "KOZE",
+  "description": "Kost Management App",
   "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
@@ -9,13 +9,13 @@
   "theme_color": "#0ea5e9",
   "icons": [
     {
-      "src": "/images/icons/alesha.png",
+      "src": "/images/icons/logo_koze.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/images/icons/anarta.png",
+      "src": "/images/icons/logo_koze.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
