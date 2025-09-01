@@ -35,6 +35,15 @@
                 <!-- Login Form -->
                 <form class="mt-8 space-y-6" action="{{ route('login') }}" method="POST">
                     @csrf
+                    @if ($errors->any())
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     
                     <!-- Email Field -->
                     <div>
